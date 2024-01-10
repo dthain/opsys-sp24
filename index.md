@@ -5,19 +5,21 @@ title: CSE 30341 - Operating Systems Principles
 
 ## CSE 30341 - Operating Systems Principles
 
-- 136 Debartolo Hall, Spring 2022
-- Prof. Douglas Thain (dthain@nd.edu)
-- Grad TA: Barry Sly-Delgado (bslydelg@nd.edu)
-- Grad TA: Ben Lyons (blyons1@nd.edu)
-- UGrad TA: Mark Schermerhorn (mscherm2@nd.edu)
+- 136 Debartolo Hall, Spring 2024
+- Prof. Douglas Thain (`dthain@nd.edu`)
+- Grad TA: Jin Zhou (`jzhou24@nd.edu`)
+- Grad TA: Samit Muhaiman (`smuhaimi@nd.edu`)
+- Ugrad TA: Chris Boumalhab (`cboumalh@nd.edu`)
+- Ugrad TA: Eamon Tracey (`etracey@nd.edu`)
+- Ugrad TA: Daniel "Zen" Yu (`dyu4@nd.edu`)
 
-## Office Hours (Starting Jan 17th)
+## Draft Office Hours (Starting Jan 22nd)
 
-|   | Mon | Tue | Wed | Thu | Fri |
-|---|-----|-----|-----|-----|-----|
-|1-3PM | Prof. Thain (\*) |     |       | Prof. Thain (\*) | Ben (+) |
-|3-5PM |             | Ben (+) |            |  Mark (+) (3:30) |     |
-|5-7PM |             | Mark (+) | Barry (+) | Barry (+)       |     |
+|      | Mon | Tue | Wed | Thu | Fri |
+|------|-----|-----|-----|-----|-----|
+|1-3PM |     | Prof. Thain (\*)|     | Prof. Thain (\*) |  |
+|3-5PM |     |     |     |     |     |
+|5-7PM |     |     |     |     |     |
 
 - (\*) in 384C Fitzpatrick
 - (+) in 150B Fitzpatrick (CSE student commons)
@@ -25,16 +27,37 @@ title: CSE 30341 - Operating Systems Principles
 ## Quick Links
 
 - [Syllabus](syllabus)
-- [Submit Reading Notes on Canvas](https://canvas.nd.edu/courses/33829/assignments)
 - [General Instructions for Assignments](general)
-- [Recorded Lectures on Panopto](https://canvas.nd.edu/courses/33829/external_tools/76)
-- [Gradebook on Canvas](https://canvas.nd.edu/courses/33829/gradebook)
-- [Office Hours Zoom](https://notredame.zoom.us/j/98135137451)
+- [Submit Reading Notes on Canvas](https://canvas.nd.edu/courses/82668/assignments)
+- [Slack Channel](https://nd-cse.slack.com/archives/C06D9T46UG2)
+- [Gradebook on Canvas](https://canvas.nd.edu/courses/82668/gradebook)
 
 ## Online Textbook
 
 - Required: [Operating Systems in Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP), Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau, Arpaci-Dusseau Books, March, 2018 (Version 1.00)
 - Suggested: The C Programming Language, Brian Kernighan and Dennis Ritchie, Prentice Hall, 1988.
+
+## Tentative Schedule
+
+|Week|Reading&nbsp;Due Mon&nbsp;11:59PM |Tuesday|Thursday|Due Friday 5PM|
+|-----|-----|-----|---|---|
+| 15 Jan  | Ch. 1-2 | Overview / [Syllabus](syllabus) | Hardware / [Powers](powers)
+| 12 Jan  | Ch. 3-6	| Processes	| Processes | [Project 1 Due](project1)
+| 29 Jan  | Ch. 7-11	| Scheduling	| Scheduling	| [Project 2 Due](project2)
+| 5 Feb   | Ch. 25-29	| Threads	| Locks and Data Structures | [Watch Nova: Fractals](https://www.youtube.com/watch?v=d0Exnv8Ym7s)
+| 12 Feb  | Ch. 30	   | Condition Variables | CV Contd / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | [Homework A Due](homework-scheduling)
+| 19 Feb  | Ch. 31-34	| Catch Up | Semaphores / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | [Project 3 Due](project3)
+| 26 Feb  | Ch. 13-16	| Deadlock	| Memory Overview	| [Homework B Due](homework-sync)
+| 4 Mar         | --	      | Segmentation | [Midterm Exam](midterm)	|
+| 11 Mar        | - | Spring Break | Spring Break |
+| 18 Mar        | Ch. 17-19	| Paging Mechanisms | TLBs / Performance	| 
+| 25 Mar        | Ch. 20-22	| Multi-Level Paging | Swapping	| [Project 4 Due](project4)
+| 1 Apr	        | Ch. 35-37 + 44	| I/O Devices / ([Mouse](https://github.com/dthain/basekernel/blob/master/kernel/mouse.c) / [Disk](https://github.com/dthain/basekernel/blob/master/kernel/ata.c))  | HDD [Datasheet](https://www.seagate.com/www-content/datasheets/pdfs/desktop-hdd-8tbDS1770-9-1603US-en_US.pdf) / SSD [Datasheet](https://www.micron.com/-/media/client/global/documents/products/data-sheet/ssd/m550_m2_2280_ssd.pdf) | 
+| 8 Apr         | Ch. 38-39	| RAID	| FS Abstraction | [Project 5 Due](project5)
+| 15 Apr        | Ch. 40-42	| FS Implementation	| FS Structure |
+| 22 Apr        | Ch. 53-55	| Security | Security |
+| 29 Apr        | - | [Project 6 Due](project6) | No Class |
+| 6 May	        | [Final Exam Thursday 10:30](final) | - | - |
 
 ## Some Open Source OS Kernels
 
@@ -45,27 +68,4 @@ title: CSE 30341 - Operating Systems Principles
 - [Plan 9 from Bell Labs](https://9p.io/plan9/)
 - [Linux Kernel](https://www.kernel.org)
 - [NetBSD](https://www.netbsd.org)
-
-## Tentative Schedule
-
-|Week|Reading&nbsp;Due Mon&nbsp;11:59PM |Tuesday|Thursday|Due Friday 5PM|
-|-----|-----|-----|---|---|
-| 10 Jan	| Ch. 1-2 | Overview / [Syllabus](syllabus) | Hardware / [Powers](powers)
-| 17 Jan	| Ch. 3-6	| Processes	| Processes | [Project 1 Due](project1)
-| 24 Jan	| Ch. 7-11	| Scheduling	| Scheduling	| [Project 2 Due](project2)
-| 31 Jan	| Ch. 25-29	| Threads	| Locks and Data Structures | [Watch Nova: Fractals](https://www.youtube.com/watch?v=d0Exnv8Ym7s)
-| 7 Feb		| Ch. 30	   | Condition Variables | CV Contd / [Examples](https://github.com/dthain/opsys-sp22/tree/main/examples) | [Homework A Due](homework-scheduling)
-| 14 Feb	| Ch. 31-34	| Catch Up | Semaphores / [Examples](https://github.com/dthain/opsys-sp22/tree/main/examples) | [Project 3 Due](project3)
-| 21 Feb	| Ch. 13-16	| Deadlock	| Memory Overview	| [Homework B Due](homework-sync)
-| 28 Feb	| --	      | Segmentation | [Midterm Exam](midterm)	|
-| 7 Mar		| - | Spring Break | Spring Break |
-| 14 Mar	| Ch. 17-19	| Paging Mechanisms | TLBs / Performance	| 
-| 21 Mar	| Ch. 20-22	| Multi-Level Paging | Swapping	| [Project 4 Due](project4)
-| 28 Mar	| Ch. 35-37 + 44	| I/O Devices / ([Mouse](https://github.com/dthain/basekernel/blob/master/kernel/mouse.c) / [Disk](https://github.com/dthain/basekernel/blob/master/kernel/ata.c))  | HDD [Datasheet](https://www.seagate.com/www-content/datasheets/pdfs/desktop-hdd-8tbDS1770-9-1603US-en_US.pdf) / SSD [Datasheet](https://www.micron.com/-/media/client/global/documents/products/data-sheet/ssd/m550_m2_2280_ssd.pdf) | 
-| 4 Apr 	| Ch. 38-39	| RAID	| FS Abstraction | [Project 5 Due](project5)
-| 11 Apr	| Ch. 40-42	| FS Implementation	| FS Structure |
-| 18 Apr	| Ch. 53-55	| Security | Security |
-| 25 Apr        | - | [Project 6 Due](project6) | No Class |
-| 2 May		| [Final Exam Monday 10:30](final) | - | - |
-
 
