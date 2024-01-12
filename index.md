@@ -41,7 +41,7 @@ title: CSE 30341 - Operating Systems Principles
 
 |Week|Reading&nbsp;Due Mon&nbsp;11:59PM |Tuesday|Thursday|Due Friday 5PM|
 |-----|-----|-----|---|---|
-| 15 Jan  |             | Overview / [Syllabus](syllabus) | Hardware / [Powers](powers) | **Homework A Due**
+| 15 Jan  |             | Overview<br>[Syllabus](syllabus) | Hardware<br>[Powers](powers) | **Homework A Due**
 | 12 Jan  | Ch. 1-6	| Processes	| Processes | [Project 1 Due](project1)
 | 29 Jan  | Ch. 7-11	| Scheduling	| Scheduling	| [Project 2 Due](project2)
 | 5 Feb   | Ch. 25-29	| Threads	| Locks and Data Structures | **Homework B Due**
@@ -56,7 +56,7 @@ title: CSE 30341 - Operating Systems Principles
 | 8 Apr         | Ch. 38-39	| RAID	| FS Abstraction | **Project 5 Due**
 | 15 Apr        | Ch. 40-42	| FS Implementation	| FS Structure |
 | 22 Apr        | Ch. 53-55	| Security | Security |
-| 29 Apr        | - | **Project 6 Due** | No Class |
+| 29 Apr        | - | Review<br>**Project 6 Due** | No Class |
 | 6 May	        |   |                   | [Final Exam Thursday 10:30](final) |
 
 ## Some Open Source OS Kernels
