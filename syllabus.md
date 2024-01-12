@@ -1,6 +1,6 @@
-# CSE 30341-01 Operating Systems Principles
+# CSE 30341-01 Operating Systems Principles Spring 2024
 
-Spring 2022, Prof. Douglas Thain (dthain@nd.edu), University of Notre Dame
+- Prof. Douglas Thain (dthain@nd.edu), University of Notre Dame
 
 ## Overview
 
@@ -28,28 +28,27 @@ The course materials will test each student's achievement of these goals at seve
 
 The course web page contains the schedule, assignments, and other critical information:
 
-[http://dthain.github.io/opsys-sp22](http://dthain.github.io/opsys-sp22)
+[http://dthain.github.io/opsys-sp24](http://dthain.github.io/opsys-sp24)
 
 Canvas will be used for distributing grades and class recordings:
 
-[https://canvas.nd.edu/courses/33829](https://canvas.nd.edu/courses/33829)
+[https://canvas.nd.edu/courses/82688](https://canvas.nd.edu/courses/82688)
 
 ## Textbooks
 
 - Required: Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau, **Operating Systems in Three Easy Pieces**, Arpaci-Dusseau Books, 2019. [http://ostep.org](http://ostep.org)
-
 - Suggested Reference: Kernighan and Ritchie, The C Programming Language, Prentice-Hall, 1988.
 
 ## Reading Assignments
 
 The textbook provides the foundation of the course, and it will be important for you to absorb it thoroughly.  To encourage regular
-reading and preparation for class, you will turn in summary notes on the assigned readings each Monday by 11:59PM.  (A form will be provided on the course web page.)  The easiest way to do this is just take notes on paper, and then snap a few photos for upload.  If you prefer to type them out, then attach a PDF instead.
+reading and preparation for class, you will turn in summary notes on the assigned readings via Canvas each Monday by 11:59PM.  The easiest way to do this is just take notes on paper, and then snap a few photos for upload.  If you prefer to type them out, then attach a PDF instead.
 
 Your notes can be organized in whatever way is appropriate to that chapter and is useful for you. Good things to include may be an outline of the chapter, definition of key terms, a sketch of the systems or data structures being discussed, that sort of thing.  Along with your notes, you should submit **one thoughtful question** you would like to discuss that week. I will try to answer a few highlighted questions each week, and steer the lecture to address them.
 
-Grading on notes will be very simple: either one, one-half, or zero points. There will be fourteen opportunities to earn a total of twelve points, so you may miss up to two without penalty.  The first round of notes are due on **Thursday, January 13th**, and then every **Monday at 11:59PM** thereafter.
+Grading on notes will be very simple: either one, one-half, or zero points. There will be thirteen opportunities to earn a total of twelve points, so you may miss one without penalty.  The first round of notes are due on **Thursday, January 18th**, and then every **Every Monday at 11:59PM** thereafter.
 
-## Attendance and Classroom Recording
+## Attendance
 
 To succeed in this class, you should attend and actively participate in all the scheduled lectures, however, attendance is not taken.
 You will get the most out of class if you have done the required readings in advance and actively take notes during class.
@@ -57,31 +56,16 @@ I typically work by diagramming key structures of the OS on the chalkboard, and 
 
 Please refrain from using your laptops for non-class activities, since this [tends to distract others](https://www.insidehighered.com/news/2018/07/27/class-cellphone-and-laptop-use-lowers-exam-scores-new-study-shows) as well as yourself.  Let's use this time to work together instead.
 
-Each class meeting will be recorded using Panopto and made available on Canvas.  Recordings are intended as a **back-up option** so that you
-can catch up if you are out sick, travelling for an interview, or just need a review.  However, watching the videos is not a good substitute for regular attendance.  Recordings typically only capture the front of the classroom and the instructor's voice,
-but may also incidentally record students during class, or shortly before and after class.
-If you have any concerns about what has been recorded, please see the instructor.
-
-**Note: Sharing any part of class recordings outside of the university is absolutely prohibited and may result in disciplinary action.**  
+The class will not be recorded, so plan accordingly.
 
 ## Grading
 
-The course grade will be based on six programming projects, one homework, a midterm, and a final exam. For each assignment, a numeric grade will be assigned. Grades will be made available in Canvas. Projects and homeworks are 60% of the course grade, chapter notes are 10%, and the midterm and final exam are each 15%. At the end of the semester, number grades will be converted to letter grades: 90/80/70 are the usual cutoffs for A/B/C grades, respectively. The instructor will exercise discretion on borderline grades, or to account for a trend of increasing/decreasing grades throughout the semester.
+The course grade will be based on six programming projects, four homeworks, a midterm, and a final exam. For each assignment, a numeric grade will be assigned. Grades will be made available in Canvas. Projects and homeworks are 60% of the course grade, chapter notes are 10%, and the midterm and final exam are each 15%. At the end of the semester, number grades will be converted to letter grades: 90/80/70 are the usual cutoffs for A/B/C grades, respectively. The instructor will exercise discretion on borderline grades, or to account for a trend of increasing/decreasing grades throughout the semester.
 
 If you believe an error has been made in grading an item, please bring it to the attention of the TA who graded it within seven days of receiving it. (The TA who graded it knows the details best, and so can give you the best explanation.) Factual and clerical errors will of course be cheerfully corrected. If you are unsatisfied with the TA's explanation, you may appeal to the instructor. After seven days, graded items are final and will not be revisited.
 
-Late assignments are not generally accepted.  However, each student may use **one late pass** for one assignment during the semester.  To exercise this option,
-please email the instructor prior to the deadline.  The late pass will give you an extension of one week on the assignment.  (Cannot be used for the final assignment.)
-
-## Campus Health and Safety
-
-At the time of writing, classes are to be conducted in person normally, with masking precautions.
-Of course, we may need to adjust if the campus situation changes.
-
-If you have a mild illness (or are required to quarantine as a precaution) then you should make
-use of the classroom recordings and continue to complete assignments in the ordinary way.
-Office hours will be available by Zoom if needed.  If you have a more serious illness, then
-please contact the instructor when you are able, and we will make alternate arrangements.
+**Late assignments are not accepted.**  Plan accordingly and start work well before each deadline.  You may submit partially complete code at multiple points prior to the deadline,
+so there is no reason not to turn in **something** for each deadline.  If you happen to fall behind and miss a deadline, then let it go and focus your efforts on the next assignment.
 
 ## Academic Code of Honor
 
@@ -92,6 +76,9 @@ As a student at Notre Dame, you are bound by the Academic Code of Honor (http://
 The purpose of the homeworks and assignments in this course is for each student to gain the discipline and skills in design, programming, and analysis, so that they will be able to work independently in a professional setting. To that end, all exams, homeworks, and programming assignments are to be completed individually. Each student must write their own code from scratch with their own hands based on their own understanding of the course material.
 
 You may consult with other students and outside resources in order to better understand concepts and techniques, or to debug localized problems. You may not copy code from another student or resource, excepting any starter code provided by the instructor.
+
+In a similar way, you may not use AI assistants (ChatGPT, Copilot, etc) to generate material for the code or assignments,
+since this does not serve to develop or demonstrate your own understanding of the material.
 
 ## Some Campus Resources
 
