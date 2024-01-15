@@ -3,88 +3,106 @@
 
 First, read the [general instructions](general) for assignments. Make sure you are using the correct compiler on the correct machine.
 
-This project is a warm up assignment for the course. The basic concept is very simple: to write a program that copies files and directories from one place to another. However, the main challenge of engineering operating systems is dealing with errors and unexpected conditions. Thus, the main focus of this assignment will be on the correct handling of errors. The goals of this project are:
+This project is a warm up assignment for the course. The basic concept is simple: write a program that summarizes the contents
+of a directory in the filesystem, recursively.  However, the main challenge of engineering operating systems is dealing with errors and unexpected conditions. Thus, the main focus of this assignment will be on the correct handling of errors. The goals of this project are:
 
 - To review your knowledge of basic C programming.
 - To learn the most essential Unix system calls.
 - To gain experience in rigorous error handling.
 
-## Part 1: File Copy
+## Part 1: Directory List
 
-Write a C program called filecopy which duplicates a file from one place to another. The program will be invoked as follows:
-
-```
-filecopy SourceFile TargetFile
-```
-
-If successful, the program should output the total number of bytes copied:
+Write a C program called `dirlist` that shows the contents of a directory.
+The program will be invoked like this:
 
 ```
-filecopy: copied 23847 bytes from ABC to XYZ
+./dirlist <pathname>
 ```
 
-If not successful, it should print a suitable error message, like this:
+If successful, the program should display information about each file in that directory,
+showing the type, name, size (in bytes), access mode (in octal) and owners name (in text).
+Make sure to arrange the display nicely in columns, something like this:
 
 ```
-filecopy: couldn't open ABC: No such file or directory.
+% ./dirlist $HOME
+NAME             SIZE    TYPE MODE OWNER
+-----------------------------------------
+program.c        3264 B  file 0644 dthain
+test               32 B  dir  0755 dthain
+homework.doc     7585 B  file 0644 dthain
+courses            16 B  link 0600 dthain
+-----------------------------------------
 ```
 
-(But read the rest of the assignment below before completing Part 1.)
-
-## Part 2: Recursive Copy
-
-Write a C program called treecopy which duplicates a directory tree from one place to another. The program will be invoked as follows:
+Upon successful completion, `dirlist` should report the total directories, files, and symlinks encountered, and exit with status zero.
 
 ```
-treecopy SourcePath TargetPath
+dirlist: 34 files, 5 directories, and 3 symlinks
 ```
 
-treecopy must create an exact copy of SourcePath under the new name TargetPath. If the source path is just a file, then a simple file copy takes place in the same way as filecopy But if it is a directory, then the entire directory and its contents should be copied recursively. As the program runs, it should output what is being copied:
+If `dirlist` encounters eny kind of error or user mistake, it must immediately stop and emit a message that states the program name, the failing operation, and the reason for the failure, and then exit with result 1. For example:
 
 ```
-source -> target
-source/x -> target/x
-source/y -> target/y
-source/y/z -> target/y/z
-...
-```
-
-Upon successful completion, treecopy should report the total directories, files, and bytes copied, and exit with result 0. For example:
-
-```
-treecopy: copied 5 directories, 34 files, and 238475 bytes from ABC to XYZ
-```
-
-If treecopy encounters eny kind of error or user mistake, it must immediately stop and emit a message that states the program name, the failing operation, and the reason for the failure, and then exit with result 1. For example:
-
-```
-treecopy: couldn't create file mishmash: Permission Denied.
-treecopy: couldn't open directory foobar: File Exists.
-treecopy: couldn't write to file bizbaz: Disk Full.
+dirlist: couldn't open file mishmash: Permission Denied.
+dirlist: couldn't stat directory zibzab: No such file or directory.
+dirlist: couldn't allocate memory: Out of memory
 ```
 
 If the program is invoked incorrectly, then it should immediately exit with a helpful message:
 
 ```
-treecopy: Too many arguments!
-usage: treecopy <sourcefile> <targetfile>
+dirlist: Too many arguments!
+usage: dirlist <path>
 ```
-
-**Special Cases:** If the destination path already exists, or the source contains something other than a directory or file, then treecopy should halt without copying anything more and display a suitable error message.
 
 In short, there should be no possible way to invoke the program that results in a segmentation fault, a cryptic message, or a silent failure. Either the program runs successfully to completion, or it emits a helpful and detailed error message to the user.
 
+## Part 2: Recursive Listing
+
+Once you have `dirlist` working nicely, then make a new program called `treelist`
+by copying `dirlist.c` into `treelist.c`.  Modify `treelist` so that it shows more
+detail for each item:
+
+- If the item is a file, then load the first 40 characters of the file into memory,
+and print them at the end of the line.  To keep the display readable, don't print
+newlines or any unprintable characters that may occur.  (See isprint(3))
+
+- If the item is a symbolic link, use `readlink` to obtain the target path of the link,
+and display that.
+
+- If the item is a directory, then display the contents of that directory recursively
+and clearly indented. Of course, if there are directories within directories (of arbitrary depth)
+then those should be displayed with additional indentation as appropriate.
+
+For example, your display may look something like this:
+
+```
+% ./treelist $HOME
+NAME             SIZE    TYPE MODE    OWNER CONTENTS
+--------------------------------------------------------------------------------
+program.c        3264 B  file 0644   dthain /* Program 1 for CSE 30341 */
+test               32 B  dir  0755   dthain 
+> data1.txt     32767 B  file 0644   dthain This is dataset #1 with dates...
+> data2.txt     15687 B  file 0644   dthain This is dataset #2 without dates...
+homework.txt     7585 B  file 0644   dthain HW1 for CSE 30341 due on 01/01/2029
+courses            16 B  sym  0600   dthain -> /some/other/dir
+--------------------------------------------------------------------------------
+```
+
+Just like `dirlist`, `treelist` should also handle error conditions with informative messages.
+
 ## System Calls
 
-To carry out this assignment, you will need to learn about the following system calls:
+To carry out this assignment, you will need to learn about the following system calls, and perhaps others:
 
 ```
-open, creat, read, write, close, stat, mkdir, opendir, closedir, readdir, strerror, errno, exit
+opendir, closedir, readdir, stat, lstat, readlink
+open, read, close, strerror, errno, exit
 ```
 
-Manual pages ("man pages") provide the complete reference documentation for system calls. They are available on any Linux machine by typing man with the section number and topic name. Section 1 is for programs, section 2 for system calls, section 3 for C library functions. For example man 2 open gives you the man page for open. You can also use this online service which has the same information.
+Manual pages ("man pages") provide the complete reference documentation for system calls. They are available on any Linux machine by typing man with the section number and topic name. Section 1 is for programs, section 2 for system calls, section 3 for C library functions. For example man 2 open gives you the man page for open.   There are also a variety of online services ([linux.die.net](https://linux.die.net/man/2)) that provide the same information.
 
-As you probably already know, man pages are a little difficult to digest, because they give complete information about one call, but not how they all fit together. However, with a little practice, you can become an expert with man pages. Consider the man page for open. At the top, it tells you what include files are needed in order to use open:
+As you probably already know, man pages are a little difficult to digest, because they give complete information about one call, but not how they all fit together. However, with a little practice, you can become an expert with man pages. Consider the [man page for open(2)](https://linux.die.net/man/2/open). At the top, it tells you what include files are needed in order to use open:
 
 ```
 #include <sys/types.h>
@@ -129,13 +147,13 @@ You can check for specific kinds of errors like this:
 ```
 fd = open(filename,O_RDONLY,0);
 if(fd<0) {
-	 if(errno==EPERM) {
-		printf("Error: Permission Denied\n");
-	} else {
-		printf("Some other error.\n");
-		...
-	}
-	exit(1);
+    if(errno==EPERM) {
+        printf("Error: Permission Denied\n");
+    } else {
+        printf("Some other error.\n");
+        ...
+    }
+    exit(1);
 }
 ```
 
@@ -144,97 +162,45 @@ This would get rather tedious with 129 different error messages. Instead, use th
 ```
 fd = open(filename,O_RDONLY,0);
 if(fd<0) {
-	 printf("Unable to open %s: %s\n",filename,strerror(errno));
-	 exit(1);
-}
-```
-
-## How to Copy a File
-
-Copying a file from one place to another is a little more complex than it first appears. Because a file may be very large (possibly larger than all available memory), you cannot expect to load it all into memory at once, and then write it out. Instead, the file must be copied in chunks: read one chunk from the source into memory, write it out to the destination, and keep going until the whole file is copied. (The exact size of the chunk isn't critical, but 4KB is a good round number, for reasons we will discuss later in the semester.)
-
-So, the general strategy is this:
-
-```
-open the source file
-open the destination file
-
-char buffer[4096]
-
-loop {
-    read a chunk from the source into the buffer
-    write a chunk from buffer into the destination
-}
-
-close the source file
-close the destination file
-```
-
-However, it's not quite that simple. The read and write system calls have some unusual behavior. If you request to read count bytes of data like this:
-
-```
-int result = read(fd,buffer,count);
-```
-
-There are several possible outcomes. If read was able to access some data, it will return the number of bytes actually read. The number might be as high as count, but it could also be smaller. For example, if you request to read 4096 bytes, but there are only 40 bytes remaining in the file, read will return 40. If there is nothing more left in the file, read will return zero. If there is an error, the result will be less than zero, as above. write operates in a very similar way.
-
-So, to copy a file carefully, you will need to do something like this:
-
-```
-loop over {
-     read a chunk of data from the source file
-     if there was an error reading, exit with an error
-     if no data left, end the loop
-
-     write a chunk of data to the target file
-     if not all the data was written, try the remainder.
-     if there was an error writing, exit with an error
+     printf("Unable to open %s: %s\n",filename,strerror(errno));
+     exit(1);
 }
 ```
 
 ## Testing
 
-Make sure to test your program on a wide variety of conditions. Start by testing single files, both small and large. How do you know if the file copy worked correctly? Use the program md5sum to take the checksum of both files, and double check that it matches:
-
-```
-% md5sum /tmp/SourceFile
-b92891465b9617ae76dfff2f1096fc97  /tmp/SourceFile
-% md5sum /tmp/TargetFile
-b92891465b9617ae76dfff2f1096fc97  /tmp/TargetFile
-```
-
-Then, move to testing a directory with a few small entries. If that works, try directories nested several levels deep. If that works, then try copying some system directores like /usr/local or /etc. Make sure to delete your copies when you are done, so as not to waste space.
+Make sure to test your program on a wide variety of conditions. Start by testing small directories, like your own home directory, and compare the output to what you get from `ls -l`.  Then move on to trying various kinds of system directories like `/etc` and `/home`.  Of course, it is likely that you won't have permission to access all of those directories, and your tools should stop with useful error messages.  If your program really gets stuck in an infinite loop, kill it with Control-C.
 
 ## Grading
 Your grade will be based on:
-- Single file copy. (20%)
-- Recursive directory copy. (40%)
-- Correct handling of all error conditions. (30%)
+- Correctness of `dirlist`. (40%)
+- Correctness of `treelist`. (30%)
+- Correct handling of all error conditions. (20%)
 - Good coding style, such as clear formatting, sensible variable names, and useful comments. (10%)
 
 ## Turning In
 
-This assignment is due on Friday, January 21st at 5:00PM.
+This assignment is due on Friday, January 16th at 5:00PM.
 
-Please turn in only the source code files filecopy.c and treecopy.c and a Makefile that builds both executables. Do not submit executables or other files, since we will build your code from source.
+Please turn in only the source code files `dirlist.c` and `treelist.c` and a `Makefile` that builds both executables. Do not turn in executables or other files, since those just take up space, and we will build your code from source anyway.
 
 Your dropbox is mounted on the student machines at this location:
 
 ```
-/escnfs/courses/sp22-cse-30341.01/dropbox/YOURNETID
+/escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID
 ```
 
 To submit your files, make a directory called project1 in your dropbox, and copy your files there:
 
 ```
-mkdir /escnfs/courses/sp22-cse-30341.01/dropbox/YOURNETID/project1
-cp filecopy.c /escnfs/courses/sp22-cse-30341.01/dropbox/YOURNETID/project1
-cp treecopy.c /escnfs/courses/sp22-cse-30341.01/dropbox/YOURNETID/project1
-cp Makefile /escnfs/courses/sp22-cse-30341.01/dropbox/YOURNETID/project1
+mkdir /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
+cp filecopy.c /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
+cp treecopy.c /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
+cp Makefile /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
 ```
 
 And double check that the right items are present:
 
 ```
-ls -la /escnfs/courses/sp22-cse-30341.01/dropbox/YOURNETID/project1
+ls -la /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
 ```
