@@ -42,11 +42,11 @@ Canvas will be used for distributing grades and class recordings:
 ## Reading Assignments
 
 The textbook provides the foundation of the course, and it will be important for you to absorb it thoroughly.  To encourage regular
-reading and preparation for class, you will turn in summary notes on the assigned readings via Canvas each Monday by 11:59PM.  The easiest way to do this is just take notes on paper, and then snap a few photos for upload.  If you prefer to type them out, then attach a PDF instead.
+reading and preparation for class, you will turn in summary notes on the assigned readings via Canvas each **Monday** by 11:59PM.  The easiest way to do this is just take notes on paper, and then snap a few photos for upload.  If you prefer to type them out, then attach a PDF instead.
 
 Your notes can be organized in whatever way is appropriate to that chapter and is useful for you. Good things to include may be an outline of the chapter, definition of key terms, a sketch of the systems or data structures being discussed, that sort of thing.  Along with your notes, you should submit **one thoughtful question** you would like to discuss that week. I will try to answer a few highlighted questions each week, and steer the lecture to address them.
 
-Grading on notes will be very simple: either one, one-half, or zero points. There will be thirteen opportunities to earn a total of twelve points, so you may miss one without penalty.  The first round of notes are due on **Thursday, January 18th**, and then every **Every Monday at 11:59PM** thereafter.
+Grading on notes will be very simple: either one, one-half, or zero points. There will be fourteen opportunities to earn a total of twelve points, so you may miss two without penalty.  The first round of notes are due on **Friday, January 19th**, and then every **Every Monday at 11:59PM** thereafter.
 
 ## Attendance
 
@@ -60,12 +60,16 @@ The class will not be recorded, so plan accordingly.
 
 ## Grading
 
-The course grade will be based on six programming projects, four homeworks, a midterm, and a final exam. For each assignment, a numeric grade will be assigned. Grades will be made available in Canvas. Projects and homeworks are 60% of the course grade, chapter notes are 10%, and the midterm and final exam are each 15%. At the end of the semester, number grades will be converted to letter grades: 90/80/70 are the usual cutoffs for A/B/C grades, respectively. The instructor will exercise discretion on borderline grades, or to account for a trend of increasing/decreasing grades throughout the semester.
+The course grade will be based on six programming projects, four homeworks, a midterm, and a final exam. For each assignment, a numeric grade will be assigned. Grades will be made available in Canvas.  The grade breakdown is projects (50%), homeworks (10%), reading notes (10%), midterm (15%) and final exam (15%). At the end of the semester, number grades will be converted to letter grades: 90/80/70 are the usual cutoffs for A/B/C grades, respectively. The instructor will exercise discretion on borderline grades, or to account for a trend of increasing/decreasing grades throughout the semester.
 
 If you believe an error has been made in grading an item, please bring it to the attention of the TA who graded it within seven days of receiving it. (The TA who graded it knows the details best, and so can give you the best explanation.) Factual and clerical errors will of course be cheerfully corrected. If you are unsatisfied with the TA's explanation, you may appeal to the instructor. After seven days, graded items are final and will not be revisited.
 
 **Late assignments are not accepted.**  Plan accordingly and start work well before each deadline.  You may submit partially complete code at multiple points prior to the deadline,
 so there is no reason not to turn in **something** for each deadline.  If you happen to fall behind and miss a deadline, then let it go and focus your efforts on the next assignment.
+
+Exceptions will be made only for the circumstances given in section 3.1.3 of the undergraduate academic code, such as major illness,
+death in the family, or participation in an authorized university event.  In those cases, the student should confer with the instructor
+as soon as the conflict is known.
 
 ## Academic Code of Honor
 
