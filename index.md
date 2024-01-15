@@ -41,14 +41,14 @@ title: CSE 30341 - Operating Systems Principles
 
 |Week|Reading&nbsp;Due Mon&nbsp;11:59PM |Tuesday|Thursday|Due Friday 5PM|
 |-----|-----|-----|---|---|
-| 15 Jan  | Ch. 1-2     | Overview<br>[Syllabus](syllabus) | Hardware<br>**Notes Due**<br>[Powers](powers) | **Homework A Due**
+| 15 Jan  | Ch. 1-2     | Overview<br>[Syllabus](syllabus) | Hardware<br>[Powers](powers) | **Homework A Due**<br>**1st Notes Due**
 | 12 Jan  | Ch. 3-6	| Processes	 | Processes | [Project 1 Due](project1)
 | 29 Jan  | Ch. 7-11	| Scheduling	 | Scheduling	| [Project 2 Due](project2)
 | 5 Feb   | Ch. 25-29	| Threads	 | Locks and Data Structures | **Homework B Due**
 | 12 Feb  | Ch. 30	| Condition Vars | CV Contd / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | **Homework C Due**
-| 19 Feb  | Ch. 31-34	| CV Contd       | Semaphores / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | **Project 3 Due**
-| 26 Feb  | Ch. 13-16	| Deadlock	 | Memory Overview	| **Homework D Due**
-| 4 Mar   | -	        | Segmentation   | [Midterm Exam](midterm)	|
+| 19 Feb  | Ch. 31	| CV Contd       | Semaphores / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | **Project 3 Due**
+| 26 Feb  | Ch. 32-33	| Deadlock	 | Memory Overview	| **Homework D Due**
+| 4 Mar   | Ch. 13-16   | Segmentation   | [Midterm Exam](midterm)	|
 | 11 Mar  | -           | Spring Break   | Spring Break |
 | 18 Mar  | Ch. 17-19	| Paging Mechanisms | TLBs / Performance	| 
 | 25 Mar  | Ch. 20-22	| Multi-Level Paging | Swapping	| **Project 4 Due**
