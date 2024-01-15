@@ -50,9 +50,9 @@ title: CSE 30341 - Operating Systems Principles
 | 26 Feb  | Ch. 32-33	| Deadlock	 | Memory Overview	| **Homework D Due**
 | 4 Mar   | Ch. 13-16   | Segmentation   | [Midterm Exam](midterm)	|
 | 11 Mar  | -           | Spring Break   | Spring Break |
-| 18 Mar  | Ch. 17-19	| Paging Mechanisms | TLBs / Performance	| 
-| 25 Mar  | Ch. 20-22	| Multi-Level Paging | Swapping	| **Project 4 Due**
-| 1 Apr	  | Ch. 35-37 + 44 | I/O Devices / ([Mouse](https://github.com/dthain/basekernel/blob/master/kernel/mouse.c) / [Disk](https://github.com/dthain/basekernel/blob/master/kernel/ata.c))  | HDD [Datasheet](https://www.seagate.com/www-content/datasheets/pdfs/desktop-hdd-8tbDS1770-9-1603US-en_US.pdf) / SSD [Datasheet](https://www.micron.com/-/media/client/global/documents/products/data-sheet/ssd/m550_m2_2280_ssd.pdf) | 
+| 18 Mar  | Ch. 17-19	| Paging Mechanisms | TLBs / Performance	| **Project 4 Due**
+| 25 Mar  | Ch. 20-22	| Multi-Level Paging | Swapping	| <br>(Easter Break)
+| 1 Apr	  | Ch. 35-37 + 44 | I/O Devices / ([Mouse](https://github.com/dthain/basekernel/blob/master/kernel/mouse.c) / [Disk](https://github.com/dthain/basekernel/blob/master/kernel/ata.c))  | HDD [Datasheet](https://www.seagate.com/www-content/datasheets/pdfs/desktop-hdd-8tbDS1770-9-1603US-en_US.pdf) / SSD [Datasheet](https://www.micron.com/-/media/client/global/documents/products/data-sheet/ssd/m550_m2_2280_ssd.pdf) | **Homework E Due**
 | 8 Apr   | Ch. 38-39	| RAID	         | FS Abstraction | **Project 5 Due**
 | 15 Apr  | Ch. 40-42	| FS Impl        | FS Structure |
 | 22 Apr  | Ch. 53-55	| Security       | Security |
