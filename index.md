@@ -41,7 +41,7 @@ title: CSE 30341 - Operating Systems Principles
 
 |Week|Reading&nbsp;Due Mon&nbsp;11:59PM |Tuesday|Thursday|Due Friday 5PM|
 |-----|-----|-----|---|---|
-| 15 Jan  | Ch. 1-2     | Overview<br>[Syllabus](syllabus) | Hardware<br>[Powers](powers) | **Homework A**<br>**1st Notes Due**
+| 15 Jan  | Ch. 1-2     | Overview<br>[Syllabus](syllabus) | Hardware<br>[Metric Math](metric) | **[Homework A](homework-metric)**<br>**1st Notes Due**
 | 12 Jan  | Ch. 3-6	| Processes	 | Processes | [Project 1](project1)
 | 29 Jan  | Ch. 7-11	| Scheduling	 | Scheduling	| **Homework B**
 | 5 Feb   | Ch. 25-29	| Threads	 | Locks and Data Structures |  **Project 2**
