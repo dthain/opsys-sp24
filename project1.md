@@ -184,23 +184,5 @@ This assignment is due on Friday, January 16th at 5:00PM.
 
 Please turn in only the source code files `dirlist.c` and `treelist.c` and a `Makefile` that builds both executables. Do not turn in executables or other files, since those just take up space, and we will build your code from source anyway.
 
-Your dropbox is mounted on the student machines at this location:
 
-```
-/escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID
-```
 
-To submit your files, make a directory called project1 in your dropbox, and copy your files there:
-
-```
-mkdir /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
-cp filecopy.c /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
-cp treecopy.c /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
-cp Makefile /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
-```
-
-And double check that the right items are present:
-
-```
-ls -la /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNETID/project1
-```
