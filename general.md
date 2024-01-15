@@ -3,9 +3,11 @@
 
 ## Build and Test on the Student Machines
 
-For this class, you must build and test your code on the CSE student servers (student10.cse.nd.edu through student13.cse.nd.edu) which run the Red Hat Linux 8 (RHEL8) operating system.  The TAs will only test your program on those machines, and that's where your grade will be determined.
+For this class, you must build and test your code on the CSE student servers (`student10.cse.nd.edu` through `student13.cse.nd.edu`) which run the Red Hat Linux 8 (RHEL8) operating system.  The TAs will only test your program on those machines, and that's where your grade will be determined.
 
-Of course, many of you want to build and test on your laptops, and that's something you should know how to do. However, our experience is that no two Linux (or Mac or Windows) machines are identical in any way: compilers, libraries, and other irrelevant things differ in subtle ways that will complicate the writing and running of your program. Code that compiles on your laptop may not compile at all on the student machines, or vice versa. If you do develop on your laptop, then leave extra time to test and debug your program when copied to the student machines.
+You can access the student machines from most any laptop or desktop computer.  On a Mac or Linux machine, open up a terminal and type `ssh student10.cse.nd.edu` and login with your ND netid and password.  On a Windows machine, use [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) to connect to `student10.cse.nd.edu`.  If you are off campus, you may need to connect to the [Campus VPN](https://vpn.nd.edu).
+
+Of course, many of you want to build and test on your laptops, and that's something you should know how to do. However, our experience is that no two Linux (or Mac or Windows) machines are identical in any way: compilers, libraries, and other irrelevant things differ in subtle ways that will complicate the writing and running of your program. Code that compiles on your laptop may not compile at all on the student machines, or vice versa. If you do develop on your laptop, then leave extra time to move your code over to the student machines and then compile and test again there.
 
 ## Turning In Code
 
