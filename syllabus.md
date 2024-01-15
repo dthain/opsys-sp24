@@ -30,7 +30,7 @@ The course web page contains the schedule, assignments, and other critical infor
 
 [http://dthain.github.io/opsys-sp24](http://dthain.github.io/opsys-sp24)
 
-Canvas will be used for distributing grades and class recordings:
+Canvas will be used for distributing grades:
 
 [https://canvas.nd.edu/courses/82688](https://canvas.nd.edu/courses/82688)
 
@@ -47,6 +47,22 @@ reading and preparation for class, you will turn in summary notes on the assigne
 Your notes can be organized in whatever way is appropriate to that chapter and is useful for you. Good things to include may be an outline of the chapter, definition of key terms, a sketch of the systems or data structures being discussed, that sort of thing.  Along with your notes, you should submit **one thoughtful question** you would like to discuss that week. I will try to answer a few highlighted questions each week, and steer the lecture to address them.
 
 Grading on notes will be very simple: either one, one-half, or zero points. There will be fourteen opportunities to earn a total of twelve points, so you may miss two without penalty.  The first round of notes are due on **Friday, January 19th**, and then every **Every Monday at 11:59PM** thereafter.
+
+## Homeworks and Projects
+
+Each week will have either a written homework or a programming project due on Friday at 5:00PM.
+
+Homeworks will typically involve short answers, sketches, and hand computations that follow from
+the class discussion of that week.  These are best done with paper and pencil -- take a picture and
+then upload to Canvas.
+
+Programming projects will be more challenging.  Each will explore a specific topic in operating systems,
+and will generally require that you spend some time researching system calls, troubleshooting problems,
+taking measurements, and refining your work in order to reach a quality results.  Don't expect to complete
+these projects in one sitting!  It will work best if you can start the project well before the deadline.
+and then take a break to reflect, ask questions, or come to office hours.  The projects increase in
+scope and difficulty through the semester -- expect that the final two projects will take about three
+weeks of effort each.  These will be submitted to a dropbox directory on the student machines.
 
 ## Attendance
 
