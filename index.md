@@ -36,7 +36,7 @@ title: CSE 30341 - Operating Systems Principles
 
 ## Online Textbook
 
-<a href=http://www.ostep.org><img align="left" height="128" src="https://pages.cs.wisc.edu/~remzi/OSTEP/book-cover-two.jpg"/></>
+<a href=http://www.ostep.org><img align="right" height="128" src="https://pages.cs.wisc.edu/~remzi/OSTEP/book-cover-two.jpg"/></a>
 
 - Required: [Operating Systems in Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP), Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau, Arpaci-Dusseau Books, March, 2018 (Version 1.00)
 - Suggested: The C Programming Language, Brian Kernighan and Dennis Ritchie, Prentice Hall, 1988.
