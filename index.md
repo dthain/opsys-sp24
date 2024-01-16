@@ -3,6 +3,8 @@ layout: default
 title: CSE 30341 - Operating Systems Principles
 ---
 
+<img align="right" height="192" src="http://github.com/dthain/basekernel/raw/master/screenshot-windows.png"/>
+
 ## CSE 30341 - Operating Systems Principles
 
 - 136 Debartolo Hall, Spring 2024
@@ -32,6 +34,8 @@ title: CSE 30341 - Operating Systems Principles
 - [Slack Channel](https://nd-cse.slack.com/archives/C06D9T46UG2)
 - [Gradebook on Canvas](https://canvas.nd.edu/courses/82668/gradebook)
 
+<img align="left" height="192" src="https://pages.cs.wisc.edu/~remzi/OSTEP/book-cover-two.jpg"/>
+
 ## Online Textbook
 
 - Required: [Operating Systems in Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP), Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau, Arpaci-Dusseau Books, March, 2018 (Version 1.00)
@@ -60,8 +64,6 @@ title: CSE 30341 - Operating Systems Principles
 | 6 May	  |             |                | [Final Exam Thursday 10:30](final) |
 
 ## Some Open Source OS Kernels
-
-<img align="right" height="192" src="http://github.com/dthain/basekernel/raw/master/screenshot-windows.png"/>
 
 - [Basekernel](http://github.com/dthain/basekernel) (by Prof. Thain)
 - [Minix](https://www.minix3.org)
