@@ -7,7 +7,7 @@ title: CSE 30341 - Operating Systems Principles
 
 <img align="right" height="192" src="http://github.com/dthain/basekernel/raw/master/screenshot-windows.png"/>
 
-- 136 Debartolo Hall, Spring 2024
+- 155 Debartolo Hall, Spring 2024
 - Prof. Douglas Thain (`dthain@nd.edu`)
 - Grad TA: Jin Zhou (`jzhou24@nd.edu`)
 - Grad TA: Samit Muhaiman (`smuhaimi@nd.edu`)
