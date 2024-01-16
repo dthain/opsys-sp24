@@ -3,9 +3,9 @@ layout: default
 title: CSE 30341 - Operating Systems Principles
 ---
 
-<img align="right" height="192" src="http://github.com/dthain/basekernel/raw/master/screenshot-windows.png"/>
-
 ## CSE 30341 - Operating Systems Principles
+
+<img align="right" height="192" src="http://github.com/dthain/basekernel/raw/master/screenshot-windows.png"/>
 
 - 136 Debartolo Hall, Spring 2024
 - Prof. Douglas Thain (`dthain@nd.edu`)
@@ -34,9 +34,9 @@ title: CSE 30341 - Operating Systems Principles
 - [Assignments on Canvas](https://canvas.nd.edu/courses/82668/assignments)
 - [Slack Channel](https://nd-cse.slack.com/archives/C06D9T46UG2)
 
-<img align="left" height="192" src="https://pages.cs.wisc.edu/~remzi/OSTEP/book-cover-two.jpg"/>
-
 ## Online Textbook
+
+<a href=http://www.ostep.org><img align="left" height="128" src="https://pages.cs.wisc.edu/~remzi/OSTEP/book-cover-two.jpg"/></>
 
 - Required: [Operating Systems in Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP), Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau, Arpaci-Dusseau Books, March, 2018 (Version 1.00)
 - Suggested: The C Programming Language, Brian Kernighan and Dennis Ritchie, Prentice Hall, 1988.
