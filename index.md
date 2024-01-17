@@ -15,16 +15,16 @@ title: CSE 30341 - Operating Systems Principles
 - Ugrad TA: Eamon Tracey (`etracey@nd.edu`)
 - Ugrad TA: Daniel "Zen" Yu (`dyu4@nd.edu`)
 
-## Draft Office Hours (Starting Jan 22nd)
+##  Office Hours - Starting Jan 22nd
 
-|      | Mon | Tue | Wed | Thu | Fri |
-|------|-----|-----|-----|-----|-----|
-|1-3PM |     | Prof. Thain (\*)|     | Prof. Thain (\*) |  |
-|3-5PM |     |     |     |     |     |
-|5-7PM |     |     |     |     |     |
+|      | Mon | Tue | Wed | Thu |
+|------|-----|-----|-----|-----|
+|1-3PM | Jin | Prof. Thain | Zen | Prof. Thain |
+|3-5PM | Eamon | Chris | Eamon | Chris |
+|5-7PM | Zen  | Samit | Jin | Samit |
 
-- (\*) in 384C Fitzpatrick
-- (+) in 150B Fitzpatrick (CSE student commons)
+- Prof. Thain in 384C Fitzpatrick
+- Others in 150B Fitzpatrick (CSE student commons)
 
 ## Quick Links
 
