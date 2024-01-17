@@ -1,7 +1,10 @@
 # Homework A - Metric Math
 
 Review the [Metric Math Refresher](metric) and solve these problems.  Write all answers in the form
-of small integers accompanied by appropriate metric units.  I don't expect that these problems to be *hard*,
+of small integers accompanied by appropriate metric units.  For example, write an answer
+as 4MB, not 4194304 bytes.
+
+I don't expect that these problems to be *hard*,
 but you do need to be able to do them quickly and easily throughout the semesters.
 
 Careful: **B** indicates a byte, while **b** indicates a bit.
