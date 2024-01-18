@@ -85,7 +85,7 @@ test               32 B  dir  0755   dthain
 > data1.txt     32767 B  file 0644   dthain This is dataset #1 with dates...
 > data2.txt     15687 B  file 0644   dthain This is dataset #2 without dates...
 homework.txt     7585 B  file 0644   dthain HW1 for CSE 30341 due on 01/01/2029
-courses            16 B  sym  0600   dthain -> /some/other/dir
+courses            16 B  link 0600   dthain -> /some/other/dir
 --------------------------------------------------------------------------------
 ```
 
@@ -167,6 +167,14 @@ if(fd<0) {
 }
 ```
 
+## Some Hints
+
+- See the `stat(2)` man page and read about the macros `S_ISDIR`, `S_ISREG`, etc. which determine
+whether an entry is a directory, file, etc...
+- Note the difference between `stat(2)` and `lstat(2)`: one follows symbolic links and the other does not.
+- See `printf(3)` for many different ways of arranging output, justifying left and right, etc.
+- See `isprint(3)` for a listing of many functions that determine whether a character is printable, whitespace, numeric, etc...
+
 ## Testing
 
 Make sure to test your program on a wide variety of conditions. Start by testing small directories, like your own home directory, and compare the output to what you get from `ls -l`.  Then move on to trying various kinds of system directories like `/etc` and `/home`.  Of course, it is likely that you won't have permission to access all of those directories, and your tools should stop with useful error messages.  If your program really gets stuck in an infinite loop, kill it with Control-C.
@@ -183,6 +191,3 @@ Your grade will be based on:
 This assignment is due on Friday, January 16th at 5:00PM.
 
 Please turn in only the source code files `dirlist.c` and `treelist.c` and a `Makefile` that builds both executables. Do not turn in executables or other files, since those just take up space, and we will build your code from source anyway.
-
-
-
