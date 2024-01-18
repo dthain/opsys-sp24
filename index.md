@@ -19,9 +19,9 @@ title: CSE 30341 - Operating Systems Principles
 
 |      | Mon | Tue | Wed | Thu |
 |------|-----|-----|-----|-----|
-|1-3PM | Zen | Prof. Thain | Zen | Prof. Thain |
-|3-5PM | Eamon | Chris | Eamon | Chris |
-|5-7PM | Jin  | Samit | Jin | Samit |
+|1-3PM | Jin | Prof. Thain | Jin | Prof. Thain |
+|3-5PM | Eamon (4-6) | Chris | Eamon | Chris |
+|5-7PM | Zen (to 6:30)  | Samit | Zen (to 6:30) | Samit |
 
 - Prof. Thain in 384C Fitzpatrick
 - Others in 150B Fitzpatrick (CSE student commons)
