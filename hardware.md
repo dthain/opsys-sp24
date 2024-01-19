@@ -229,12 +229,12 @@ receiving network packets, etc.  But what if the running program wants to make a
 deliberate request of the operating system?
 
 To perform a system call, the running program will set R0 to indicate *which* system
-call is desired, put arguments to the system call in R1-R7, and and then use the `TRAP` instruction
-to force an interrupt.  In doing so, the interrupt mechanism will save the state
+call is desired, put arguments to the system call in the remaining registers, and and then use the `TRAP` instruction to force an interrupt.  In doing so, the interrupt mechanism will save the state
 of the program and jump to the appropriate entry in the Interrupt Vector.
 The operating system will have set up this entry to point to a function
 `syscall_handler` which examines the request, and takes appropriate action on the user's
 program.
+
 
 
 For example, [here is the syscall handling code](https://github.com/dthain/basekernel/blob/master/kernel/syscall_handler.c#L554) in Basekernel.
