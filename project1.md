@@ -190,6 +190,8 @@ Your grade will be based on:
 
 ## Turning In
 
-This assignment is due on Friday, January 16th at 5:00PM.
+This assignment is due on Friday, January 16th at 11:59PM.
+
+Review the [general instructions](general) for assignments.
 
 Please turn in only the source code files `dirlist.c` and `treelist.c` and a `Makefile` that builds both executables. Do not turn in executables or other files, since those just take up space, and we will build your code from source anyway.
