@@ -18,6 +18,8 @@ and a memory space that contains the program instructions and data.
 The CPU can perform a `LOAD` on an address that returns a specific value,
 or a `STORE` that sets a memory location to a specific value.
 
+![](cpu-mem.jpg)
+
 While most computer systems can address each individual byte within a memory
 space, it is more efficient to access a complete *word* consisting
 of several bytes together.  For example a "32-bit machine" has registers that
@@ -44,6 +46,8 @@ looks like this:
 The basic operation of the CPU is to read one instruction from memory (at the location given by the PC),
 carry out that instruction, then increment the PC, and repeat.  Each instruction performs one simple
 operation on the CPU registers or memory.  A program is built up from a large number of instructions.
+
+![](cpu-regs.jpg)
 
 For example, this `ADD` instruction adds together the contents of registers `R0` and `R1` and places the result in `R2`:
 
@@ -207,6 +211,16 @@ An OS would typically have a variety of functions like this:
 
 With the Interrupt Vector set up properly, each of these functions will now get called
 automatically whenever an interrupt indicates an event of interest.
+When the user's program is running in User Mode, the system looks like this:
+
+![](cpu-interrupt-1.jpg)
+
+And then when an interrupt occurs (let's say, the keyboard interrupt),
+the CPU will take the actions given above, which results in the user's
+registers saved on the kernel stack, and the CPU running the `keyboard_handler`
+function in the operating system:
+
+![](cpu-interrupt-2.jpg)
 
 Keep in mind that the hardware **automatically saves** the state of the
 currently-running computation by virtue of saving all of the registers on the stack.
