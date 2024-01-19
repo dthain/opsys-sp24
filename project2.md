@@ -1,6 +1,8 @@
 # Project 2: Processes and the Shell
 
-Please review the [general instructions](general) for assignments. The goals of this project are:
+Please review the [general instructions](general) for assignments.
+
+The goals of this project are:
 - To learn the relationship between the kernel, the shell, and user-level programs.
 - To learn how to employ the Unix process management system calls.
 - To gain more experience in rigorous error handling.
