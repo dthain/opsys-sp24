@@ -14,22 +14,6 @@ of an "abstract" computer.
 All the concepts shown here are present in any kind of CPU, although they tend to
 have slightly different names and arrangement of details.
 
-
-## Bonus Info: Basekernel Details
-
-System calls appear to the user as ordinary functions.  However, the implementatio
-[individual system calls] are presented
-
-https://github.com/dthain/basekernel/blob/master/library/syscalls.c
-https://github.com/dthain/basekernel/blob/master/library/syscall.S
-
-The Interrupt Vector is 
-
-https://github.com/dthain/basekernel/blob/master/kernel/kernelcore.S#L466
-
-https://github.com/dthain/basekernel/blob/master/kernel/kernelcore.S#L406
-
-
 ## System Block Diagram
 
 At its core, a computer system consists of a CPU that executes a program,
@@ -268,7 +252,17 @@ The operating system will have set up this entry to point to a function
 `syscall_handler` which examines the request, and takes appropriate action on the user's
 program.
 
+## Bonus Info: Basekernel Details
 
+**(This is not required information, but may be of interest if you want to explore more.)**
 
-For example, [here is the syscall handling code](https://github.com/dthain/basekernel/blob/master/kernel/syscall_handler.c#L554) in Basekernel.
+[Basekernel](https://github.com/dthain/basekernel) is a small operating system
+kernel by Prof. Thain for demonstrating the principles of operating systems.  YOu can build and try it out yourself in a virtual machine on your laptop, if you like.
 
+Here is where you can find these principles illustrated in Basekernel:
+
+- [library/syscalls.c](https://github.com/dthain/basekernel/blob/master/library/syscalls.c) contains the user-mode functions for each system call.  Each one gathers arguments and passes it to the generic function `syscall`.
+- [library/syscall.S](https://github.com/dthain/basekernel/blob/master/library/syscall.S) contains the assembly-language source for `syscall` which puts arguments into registers, and then forces a trap with the `int 0x80` instruction.
+- [kernel/kernelcore.S](https://github.com/dthain/basekernel/blob/master/kernel/kernelcore.S#L466) which points to handlers named `intr00-intr48` that
+eventually call C functions `interrupt_handler` and `syscall_handler`.
+- [kernel/syscall_handler.c](https://github.com/dthain/basekernel/blob/master/kernel/syscall_handler.c#L554) contains the C function `syscall_handler` which examins the provided arguments, and then calls functions like `sys_process_fork` and `sys_open_file` as appropriate to carry out the request.
