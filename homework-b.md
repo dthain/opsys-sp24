@@ -12,8 +12,9 @@ Now, the most common way of using `fork` and `execl` is this:
 pid = fork();
 if(pid==0) {
     execl("program",...);
-}    
-wait(&status);
+} else if(pid>0) {
+    wait(&status);
+}
 ```
 
 Which results in a single child process running "program".
@@ -23,7 +24,8 @@ This can be sketched as a process tree, like this:
 
 But there are many other ways to put the pieces together,
 as shown below.  Suppose that a program named "shell"
-executes the following code snippets:
+executes the following code snippets.  (You may assume
+that `fork` and `execl` always succeed in these examples.)
 
 Q3 - Sketch a diagram showing the outcome of this program:
 
