@@ -82,8 +82,8 @@ NAME             SIZE    TYPE MODE    OWNER CONTENTS
 --------------------------------------------------------------------------------
 program.c        3264 B  file 0644   dthain /* Program 1 for CSE 30341 */
 test               32 B  dir  0755   dthain 
-> data1.txt     32767 B  file 0644   dthain This is dataset #1 with dates...
-> data2.txt     15687 B  file 0644   dthain This is dataset #2 without dates...
+> data1.txt      32767 B  file 0644   dthain This is dataset #1 with dates...
+> data2.txt      15687 B  file 0644   dthain This is dataset #2 without dates...
 homework.txt     7585 B  file 0644   dthain HW1 for CSE 30341 due on 01/01/2029
 courses            16 B  link 0600   dthain -> /some/other/dir
 --------------------------------------------------------------------------------
@@ -169,6 +169,8 @@ if(fd<0) {
 
 ## Some Hints
 
+- You may need to put `#define _GNU_SOURCE` at the top of your programs (above the `#includes`)
+in order to access all of the relevant system calls.
 - See the `stat(2)` man page and read about the macros `S_ISDIR`, `S_ISREG`, etc. which determine
 whether an entry is a directory, file, etc...
 - Note the difference between `stat(2)` and `lstat(2)`: one follows symbolic links and the other does not.
