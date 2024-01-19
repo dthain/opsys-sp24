@@ -4,7 +4,9 @@
 
 2. State precisely in one sentence the effect and return value of the `execl()` system call in Unix.
 
-3. The most common way of using `fork` and `execl` is this:
+<hr>
+
+Now, the most common way of using `fork` and `execl` is this:
 
 ```
 pid = fork();
@@ -18,9 +20,11 @@ Which results in a single child process running "program".
 This can be sketched as a process tree, like this:
 
 
-But there are many other ways to put the pieces together.
-Suppose a program named "shell" executes the following code.
-Sketch a diagram indicating the outcome of this code:
+But there are many other ways to put the pieces together,
+as shown below.  Suppose that a program named "shell"
+executes the following code snippets.
+
+3 - Sketch a diagram showing the outcome of this program:
 
 ```
 fork();
