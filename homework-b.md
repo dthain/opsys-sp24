@@ -19,7 +19,7 @@ wait(&status);
 Which results in a single child process running "program".
 This can be sketched as a process tree, like this:
 
-![](homework-b-tree.jpg)
+![](homework-b-tree.svg)
 
 But there are many other ways to put the pieces together,
 as shown below.  Suppose that a program named "shell"
