@@ -48,7 +48,7 @@ title: CSE 30341 - Operating Systems Principles
 | 15 Jan  |             | Overview<br>[Syllabus](syllabus)<br>[Metric Math](metric) | Hardware<br>[Hardware Overview](hardware)| **[Homework A](homework-metric)**<br>**Ch 1-2 Notes Due**
 | 12 Jan  | Ch. 3-6	| Processes	 | Processes | [Project 1](project1)
 | 29 Jan  | Ch. 7-11	| Scheduling	 | Scheduling	| [Homework B](homework-b)
-| 5 Feb   | Ch. 25-29	| Threads	 | Locks and Data Structures |  **Project 2**
+| 5 Feb   | Ch. 25-29	| Threads	 | Locks and Data Structures |  [Project 2](project2)
 | 12 Feb  | Ch. 30	| Condition Vars | CV Contd / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | [Homework C](homework-c)
 | 19 Feb  | Ch. 31	| CV Contd       | Semaphores / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | **Project 3**
 | 26 Feb  | Ch. 32-33	| Deadlock	 | Memory Overview	| [Homework D](homework-d)

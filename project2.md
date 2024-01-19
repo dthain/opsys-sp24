@@ -15,7 +15,6 @@ Your shell should print out a suitable prompt like `myshell>` when it is ready t
 It must read a line of input, accepting several possible commands:
 
 - list
-- rename
 - chdir 
 - pwd
 - start
