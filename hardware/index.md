@@ -252,6 +252,10 @@ The operating system will have set up this entry to point to a function
 `syscall_handler` which examines the request, and takes appropriate action on the user's
 program.
 
+There are system calls to do all sorts of things: manipulate files,
+control processes, communicate over the network, and more.
+We will explore these in the coming weeks.
+
 ## Bonus Info: Basekernel Details
 
 **(This is not required information, but may be of interest if you want to explore more.)**
