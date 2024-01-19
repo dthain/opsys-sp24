@@ -25,7 +25,7 @@ But there are many other ways to put the pieces together,
 as shown below.  Suppose that a program named "shell"
 executes the following code snippets.
 
-3 - Sketch a diagram showing the outcome of this program:
+3. Sketch a diagram showing the outcome of this program:
 
 ```
 fork();
@@ -71,7 +71,7 @@ for(i=0;i<8;i++) {
 execl("program",...):
 ```
 
-8 - Sketch the outcome of this program:
+8. Sketch the outcome of this program:
 
 ```
 for(i=0;i<8;i++) {
