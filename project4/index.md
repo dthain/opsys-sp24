@@ -3,6 +3,10 @@ layout: default
 title: Project 4 - 3D Printer Scheduler
 ---
 
+# WARNING: Under Construction
+
+**This is an old version of an assignment, and currently being revised.  If you got here by accident, don't use this document yet!**
+
 # Project 4 - 3D Printer Scheduler
 
 The goals of this project are:

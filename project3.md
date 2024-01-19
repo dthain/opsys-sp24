@@ -1,4 +1,9 @@
+# WARNING: Under Construction
+
+**This is an old version of an assignment, and currently being revised.  If you got here by accident, don't use this document yet!**
+
 # Project 3: Parallel Mandelbrot
+
 The goals of this project are:
 - To learn how to exploit fine-grained parallelism with threads.
 - To identify and protect critical sections in concurrent programs.

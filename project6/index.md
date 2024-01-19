@@ -3,6 +3,10 @@ layout: default
 title: Project 6: SimpleFS
 ---
 
+# WARNING: Under Construction
+
+**This is an old version of an assignment, and currently being revised.  If you got here by accident, don't use this document yet!**
+
 # Project 6: SimpleFS
 
 By undertaking this project, you will:
