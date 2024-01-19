@@ -6,10 +6,29 @@ relies upon the hardware to provide a *basic capability* that is made complete
 by the software in the operating system kernel.
 
 So, in order to understand an operating system, you must first have a good mental
-model of how a computer system works at the machine language level.  This article
-will provide that model for a "generic" computer.  All the concepts shown here
-are present in any kind of CPU, although they may have different names and variations
-on the details.
+model of how a computer system works at the machine language level.  Since our
+textbook doesn't have a lot to say about hardware (and not everyone has taken Computer Architecture yet),
+this article will provide some baseline information about the hardware capabilities
+of an "abstract" computer.
+
+All the concepts shown here are present in any kind of CPU, although they tend to
+have slightly different names and arrangement of details.
+
+
+## Bonus Info: Basekernel Details
+
+System calls appear to the user as ordinary functions.  However, the implementatio
+[individual system calls] are presented
+
+https://github.com/dthain/basekernel/blob/master/library/syscalls.c
+https://github.com/dthain/basekernel/blob/master/library/syscall.S
+
+The Interrupt Vector is 
+
+https://github.com/dthain/basekernel/blob/master/kernel/kernelcore.S#L466
+
+https://github.com/dthain/basekernel/blob/master/kernel/kernelcore.S#L406
+
 
 ## System Block Diagram
 
@@ -187,10 +206,10 @@ and then eventually return control to the original program.
 
 More formally, here is what happens when an interrupt is received:
 
-1 - Push all registers (both user and supervisor) to the SSP.
-2 - Switch `MODE` from User to Supervisor.
-3 - Set `SP = `SSP`.
-4 - Set `PC = IVP[n]`, where n is the specific interrupt number.
+1. Push all registers (both user and supervisor) to the SSP.
+2. Switch `MODE` from User to Supervisor.
+3. Set `SP = `SSP`.
+4. Set `PC = IVP[n]`, where n is the specific interrupt number.
 
 The number `n` is provided by the hardware and indicates exactly what the source
 of the interrupt is.  For example, here is the [table of interrupt numbers](https://wiki.osdev.org/Interrupt_Vector_Table) for Intel X86 CPUs.
