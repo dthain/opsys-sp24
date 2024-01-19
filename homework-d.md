@@ -1,7 +1,6 @@
-# CSE 30341 - Homework B - Synchronization
+# Homework D- Synchronization
 
-Synchronization Background
-----------
+## Synchronization Background
 
 As we discussed in class, a monitor is a code-organization strategy for writing safe concurrent programs.
 A monitor consists of a data structure, a mutex, a condition variable,
@@ -16,8 +15,7 @@ Here is a foolproof recipe to write simple and correct monitor code:
 - Broadcast whenever a covering condition is triggered.
 - After sleeping, consider the wakeup as a hint that your condition might be satisfied. Check to be sure. 
 
-The Bank Account Problem
-------------------------
+## The Bank Account Problem
 
 Suppose you have an integer representing your balance at the bank.
 Multiple threads may deposit or withdraw money from the account.
@@ -85,8 +83,7 @@ void withdraw( int amount )
 
 **Question 2.** Can the punch-your-neighbor approach be fixed by a small code change? If so, give it. If not, explain why not.
 
-The Readers-Writers Problem
----------------------------
+## The Readers-Writers Problem
 
 There are many threads accessing a shared data structure repeatedly.
 Sometimes threads want to write the data structure,
@@ -139,8 +136,7 @@ if reader threads continually arrive, preventing the writer thread from obtainin
 Write a slightly more complex solution that prevents starvation but still provides the same level of safety.
 (Use the same code structure as above.)
 
-The Egg Carton Problem
----------------------
+## The Egg Carton Problem
 
 Suppose you have several people working together to collect eggs from a chicken coop.
 There is one egg carton that holds twelve eggs.  Each time a person collects a fresh
@@ -177,3 +173,8 @@ Turning In
 ----------
 
 Please type up your answers in a nicely formatted document, and submit via Canvas.
+
+Note that the point of this homework is **not** to compile and run the code,
+because running it a few times will not prove that it is correct under all circumstances.
+
+

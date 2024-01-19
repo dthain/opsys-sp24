@@ -1,7 +1,6 @@
-CSE 30341 - Homework A - Scheduling
--------------------------------
+# Homework C - Scheduling
 
-Part A - Scheduling Archetypes
+# Part 1 - Scheduling Archetypes
 ----------------------------------
 Suppose that you have the following jobs to schedule
 in a single-processor operating system.
@@ -29,8 +28,7 @@ and that ties are broken in favor of the job that arrived earlier.
 
 **Question 3** : Repeat for the Shortest Completion Time First (SCTF) (preemptive) scheduling algorithm.
 
-Part B - Multi Level Feedback Queue
----------------------------------------
+# Part 2 - Multi Level Feedback Queue
 
 Suppose that you have a single processor multi-level-feedback-queue
 as described in Chapters 8.1 and 8.2.  (Do not add the later extra rules.)
@@ -48,9 +46,9 @@ Consider the following three jobs:
 **Question 4**: Carefully diagram how the basic MLFQ scheduler would schedule these jobs until all are complete,
 including the times of each significant event in the schedule.
 
-Turning In
-----------
+# Turning In
+
 These problems involve working out a number of diagrams,
 so we suggest that you sketch your answers carefully on
-paper, and then submit by uploading photos to Canvas.
+paper, take a photo and then upload to Canvas.
 
