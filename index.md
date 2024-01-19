@@ -43,7 +43,7 @@ title: CSE 30341 - Operating Systems Principles
 
 ## Tentative Schedule
 
-|Week|Reading&nbsp;Due Mon&nbsp;11:59PM |Tuesday|Thursday|Due Friday 5PM|
+|Week|Reading&nbsp;Due Mon&nbsp;11:59PM |Tuesday|Thursday|Due Friday 11:59PM|
 |-----|-----|-----|---|---|
 | 15 Jan  |             | Overview<br>[Syllabus](syllabus)<br>[Metric Math](metric) | Hardware<br>[Hardware Overview](hardware)| **[Homework A](homework-metric)**<br>**Ch 1-2 Notes Due**
 | 12 Jan  | Ch. 3-6	| Processes	 | Processes | [Project 1](project1)
