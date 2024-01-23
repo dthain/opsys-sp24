@@ -97,7 +97,7 @@ To carry out this assignment, you will need to learn about the following system 
 
 ```
 opendir, closedir, readdir, stat, lstat, readlink
-open, read, close, strerror, errno, exit
+open, read, close, getpwuid, strerror, errno, exit
 ```
 
 Manual pages ("man pages") provide the complete reference documentation for system calls. They are available on any Linux machine by typing man with the section number and topic name. Section 1 is for programs, section 2 for system calls, section 3 for C library functions. For example man 2 open gives you the man page for open.   There are also a variety of online services ([linux.die.net](https://linux.die.net/man/2)) that provide the same information.
@@ -176,6 +176,7 @@ whether an entry is a directory, file, etc...
 - Note the difference between `stat(2)` and `lstat(2)`: one follows symbolic links and the other does not.
 - See `printf(3)` for many different ways of arranging output, justifying left and right, etc.
 - See `isprint(3)` for a listing of many functions that determine whether a character is printable, whitespace, numeric, etc...
+- See `getpwuid(3)` for converting an integer `uid` into information about a user.
 
 ## Testing
 
