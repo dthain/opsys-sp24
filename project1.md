@@ -72,7 +72,8 @@ and display that.
 
 - If the item is a directory, then display the contents of that directory recursively
 and clearly indented. Of course, if there are directories within directories (of arbitrary depth)
-then those should be displayed with additional indentation as appropriate.
+then those should be displayed with additional indentation as appropriate.  (And you
+should skip over the special entries `.` and `..` so as not to recurse endlessly.)
 
 For example, your display may look something like this:
 
