@@ -83,8 +83,8 @@ Valgrind is a tool for detecting memory management errors in C. This is useful b
 
 For more information regarding valgrind errors check out the following resources:
 
-- (Valgrind Website)[https://valgrind.org/]
-- (Valgrind Tutorial)[http://cs.ecs.baylor.edu/~donahoo/tools/valgrind/messages.html]
+- [Valgrind Website](https://valgrind.org/)
+- [Valgrind Tutorial](http://cs.ecs.baylor.edu/~donahoo/tools/valgrind/messages.html)
 
 ### Strace
 
