@@ -145,6 +145,7 @@ then that person must wait until the carton is emptied, and then place the egg.
 
 A single *collector* comes by periodically, and checks to see if the carton is full.
 If it is, then the collector takes the *whole* carton away and replaces it with an empty one.
+(That is, the collector removes all of the eggs *atomically*.)
 If the carton is not full, the collector does nothing and comes back later.
 
 **Question 5** Write a solution to the Egg Carton problem, starting with the foolproof approach described above.

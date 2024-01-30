@@ -192,7 +192,7 @@ More formally, here is what happens when an interrupt is received:
 
 1. Push all registers (both user and supervisor) to the SSP.
 2. Switch `MODE` from User to Supervisor.
-3. Set `SP = `SSP`.
+3. Set `SP = SSP`.
 4. Set `PC = IVP[n]`, where n is the specific interrupt number.
 
 The number `n` is provided by the hardware and indicates exactly what the source
@@ -261,7 +261,7 @@ We will explore these in the coming weeks.
 **(This is not required information, but may be of interest if you want to explore more.)**
 
 [Basekernel](https://github.com/dthain/basekernel) is a small operating system
-kernel by Prof. Thain for demonstrating the principles of operating systems.  YOu can build and try it out yourself in a virtual machine on your laptop, if you like.
+kernel by Prof. Thain for demonstrating the principles of operating systems.  You can build and try it out yourself in a virtual machine on your laptop, if you like.
 
 Here is where you can find these principles illustrated in Basekernel:
 
