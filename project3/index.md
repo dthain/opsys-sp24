@@ -1,7 +1,3 @@
-# WARNING: Under Construction
-
-**This is an old version of an assignment, and currently being revised.  If you got here by accident, don't use this document yet!**
-
 # Project 3: Parallel Mandelbrot
 
 Please review the [general instructions](general) for assignments.
@@ -28,12 +24,16 @@ The set is interesting both mathematically and aesthetically because it has an i
 You can zoom into any part and find swirls, spirals, snowflakes, and other fun structures, as long as you are willing to do enough computation. 
 For example, here are three images starting from the entire set and zooming in: 
 
-![](assets/images/smallbase.jpg)
-![](assets/images/smallspike.jpg)
-![](assets/images/smallspikezoom.jpg)
+![](images/smallbase.jpg)
+![](images/smallspike.jpg)
+![](images/smallspikezoom.jpg)
 
-Here is the [source code](assets/code/project3/index.md) for a simple program that generates images of the Mandelbrot set and displays them in a graphics window.
+Here is the source code for a simple program that generates images of the Mandelbrot set and displays them in a graphics window.
 Just download all of the files, run `make` to build the code and then `./fractal` to display.
+- [fractal.c](https://raw.githubusercontent.com/dthain/opsys-sp24/main/project3/src/fractal.c)
+- [gfx.c](https://raw.githubusercontent.com/dthain/gfx/main/gfx.c)
+- [gfx.h](https://raw.githubusercontent.com/dthain/gfx/main/gfx.h)
+- [Makefile](https://raw.githubusercontent.com/dthain/opsys-sp24/main/project3/src/Makefile)
 
 This program uses the *escape time algorithm*. For each pixel in the image, it starts with the x and y position, and then computes a recurrence relation until it exceeds a fixed value or runs for max iterations.
 
@@ -59,7 +59,7 @@ Here are a few color variations of the same configuration:
 
 |            |             |             |
 |------------|-------------|-------------|
-|![](assets/images/smallcolor1.jpg)|![](assets/images/smallcolor2.jpg)|![](assets/images/smallcolor3.jpg)|
+|![](images/smallcolor1.jpg)|![](images/smallcolor2.jpg)|![](images/smallcolor3.jpg)|
 
 The `maxiter` value controls the amount of work done by the algorithm. If we increase `maxiter`, then we can see much more detail in the set, but it may take much longer to compute.
 Generally speaking, you need to turn the `maxiter` value higher as you zoom in. For example, here is the same area in the set computed with four different values of `maxiter`:
@@ -69,7 +69,7 @@ Generally speaking, you need to turn the `maxiter` value higher as you zoom in. 
 
 | maxiter 50 | maxiter 100 | maxiter 500 | maxiter 1000 |
 |------------|-------------|-------------|--------------|
-|![](assets/images/smalliter50.jpg)|![](assets/images/smalliter100.jpg)|![](assets/images/smalliter500.jpg)|![](assets/images/smalliter1000.jpg)|
+|![](images/smalliter50.jpg)|![](images/smalliter100.jpg)|![](images/smalliter500.jpg)|![](images/smalliter1000.jpg)|
 
 
 ## Parallel Programming
@@ -85,8 +85,8 @@ Add some code so that you can use either keystrokes or mouse clicks to zoom in, 
 Additionally, when the user clicks on a location, you should recenter the image around that location. 
 Also, add the ability to dynamically adjust `maxiter` by pressing a key.
 
-Play around with the tool for a bit, and find an interesting area that takes more than ten seconds to compute. 
-You can increase the computation time by either increasing the size of the window, or by increaasing the `maxiter` value to compute more detail.
+Play around with the tool for a bit, and find an interesting area that takes more than ten seconds to compute.
+You will probably have to zoom in and adjust the size of `maxiter` to get more detail.
 
 Once the interactive program works as desired, keep that version in the file `fractal.c`
 
@@ -114,7 +114,7 @@ Let's fix that problem in the next step.
 
 Copy your working `fractalthread.c` into a new file `fractaltask.c`.
 
-To solve the load imbalance, we must divide the work up into even smaller units called tasks. 
+To solve the load imbalance, we must divide the work up into even smaller units that we will call "tasks".
 Suppose that you divide up the image into small rectanges (say, 20x20 pixels), each one a separate
 task to be completed.  Declare an array (or 2d array) `tasks[i]` to keep track of which tasks have and have not been started.
 Then, set up each thread such that it runs in a loop, selects the next available task, computes it, and then repeats until all tasks are complete.
@@ -143,8 +143,7 @@ Your grade will be based on:
 
 Please review the [general instructions](general) for assignments.
 
-This assignment is due at 11:59PM on Friday, February 23rd. 
-Please review the [general instructions](general.md) for assignments.
+This assignment is due at **11:59PM on Friday, February 23rd**. 
 
 Turn in all of your source files and a `Makefile` that builds `fractal` and `fractalthread` and `fractaltask`.  Include a `README` file that briefly describes the keyboard and mouse commands needed to operate your programs, and anything else you would like us to know.
 
