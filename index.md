@@ -50,7 +50,7 @@ title: CSE 30341 - Operating Systems Principles
 | 29 Jan  | Ch. 7-11	| Scheduling <br> [Basekernel Procs](basekernel-process)| Scheduling	| [Homework B](homework-b)
 | 5 Feb   | Ch. 25-29	| Threads	 | Locks and Data Structures |  [Project 2](project2)
 | 12 Feb  | Ch. 30	| Condition Vars | CV Contd / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | [Homework C](homework-c)
-| 19 Feb  | Ch. 31	| CV Contd       | Semaphores / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | [Project 3](project3)
+| 19 Feb  | Ch. 31	| CV Contd / [Pathfinder](https://www.cs.cornell.edu/courses/cs614/1999sp/papers/pathfinder.html)    | Semaphores / [Examples](https://github.com/dthain/opsys-sp24/tree/main/examples) | [Project 3](project3)
 | 26 Feb  | Ch. 32-33	| Deadlock	 | Memory Overview	| [Homework D](homework-d)
 | 4 Mar   | Ch. 13-16   | Segmentation   | [Midterm Exam](midterm)	|
 | 11 Mar  | -           | Spring Break   | Spring Break |
