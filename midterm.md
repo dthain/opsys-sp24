@@ -10,7 +10,7 @@ The midterm exam will cover this material:
 
 - Chapters 1-17 - Processes and Scheduling
 - Chapters 25-34 - Threads and Synchronization
-- Projects 1-3 and Homeworks A&B
+- Projects 1-3 and Homeworks A-D
 
 The exam will be about 4-5 pages and will be taken in class on March 7th.
 You should be prepared to do the following sorts of things:
