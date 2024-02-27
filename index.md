@@ -63,6 +63,10 @@ title: CSE 30341 - Operating Systems Principles
 | 29 Apr  | -           | Review<br>**Project 6** | No Class |
 | 6 May	  |             |                | [Final Exam Thursday 10:30](final) |
 
+## Project 3 Extra Credit Submissions
+
+<a href=project3-mosaic.png><img src=project3-mosaic.png width=100%></a>
+
 ## Very Incomplete List of Notable Operating Systems
 
 Mainframe Era:
