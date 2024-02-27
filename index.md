@@ -65,7 +65,7 @@ title: CSE 30341 - Operating Systems Principles
 
 ## Project 3 Extra Credit Submissions
 
-<a href=project3-mosaic.png><img src=project3-mosaic.png width=100%></a>
+<img src="project3-mosaic.png" width=100%/>
 
 ## Very Incomplete List of Notable Operating Systems
 
