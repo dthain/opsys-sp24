@@ -14,7 +14,7 @@ The goals of this project are:
 
 Consider what happens when you have a large amount of work to
 accomplish, but you cannot simply run them everything at once:
-downloading  lots of large files, sending models to a 3D-printer,
+downloading  lots of large files, sending models to a 3D printer,
 rendering lots of frames for a movie, processing credit card payments, etc.
 To manage a large amount of work, you need a **job scheduler** which will
 accept submissions, arrange for them to execute, and report back information
@@ -45,8 +45,8 @@ These instructions install the `arctic` voice, but you can pick another
 one if you like.
 
 ```
-curl -L https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/arctic/medium/en_US-arctic-medium.onnx > arctic.onnx.json
-curl -L https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/arctic/medium/en_US-arctic-medium.onnx > arctic.onnx.json
+curl -L https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/arctic/medium/en_US-arctic-medium.onnx > arctic.onnx
+curl -L https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/arctic/medium/en_US-arctic-medium.onnx.json > arctic.onnx.json
 ```
 
 Now, in order to have some text to convert, go to [Project Gutenberg](https://www.gutenberg.org/browse/scores/top)
@@ -63,10 +63,15 @@ conversations in it, “and what is the use of a book,” thought Alice
 
 Use Piper to convert this into a WAV file reading it out load:
 ```
-./piper -f alice.wav -m arctic.onnx < alice.txt
+piper/piper -f alice.wav -m arctic.onnx < alice.txt
 ```
 
 Download that file and play it back.  Neat, eh?
+
+If that's working, you can delete the downloaded tarball:
+```
+rm piper.tar.gz
+```
 
 Now, two things you should notice about running Piper are
 (a) it takes a non-trivial amount of time to generate the output, and
@@ -162,7 +167,7 @@ of DONE jobs exceeds a total of 100MB.
 
 Note that the `delete` command removes a job as well as its output file.
 So, if the system has reached the 100MB limit, the user can `delete` a
-few jobs to free up space, and the system should automatically resume its work.
+few jobs to free up space, and the background threads should automatically resume work.
 
 ## Implementation Advice
 
@@ -174,7 +179,7 @@ documentation as needed.
 
 Here is the basic architecture you should use:
 
-<img width="100%" src="architecture.svg"/>
+<img width="100%" src="architecture.png"/>
 
 The program should consists of several threads: one main thread and several
 background threads, which interact through a common job queue.
@@ -203,7 +208,7 @@ both short and long, in different orders.  Try different combinations
 of operations: submitting, waiting, removing, etc.  Try the different
 scheduling algorithms, and verify that the statistics reported are correct
 for the jobs that actually run.  Try running with different numbers
-of printers, and check that all are kept appropriately busy.
+of background threads, and check that all are kept appropriately busy.
 
 Think critically about unexpected
 events, such as improper input from the user, incorrect arguments to
