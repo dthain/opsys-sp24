@@ -247,7 +247,7 @@ Turn in the following:
 
 **Do not turn in Piper or voice files or output wave files, since these are large and we don't need the extra copies.**
 
-This assignment is due at **5:00PM on Friday, March 25th**
+This assignment is due at **11:59PM on Monday, March 25th**
 To submit your files, just copy them into the `project4` subdirectory of your dropbox.
 
 ## Grading
