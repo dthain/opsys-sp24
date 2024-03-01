@@ -59,8 +59,8 @@ title: CSE 30341 - Operating Systems Principles
 | 1 Apr	  | Ch. 35-37 + 44 | I/O Devices / ([Mouse](https://github.com/dthain/basekernel/blob/master/kernel/mouse.c) / [Disk](https://github.com/dthain/basekernel/blob/master/kernel/ata.c))  | HDD [Datasheet](https://www.seagate.com/www-content/datasheets/pdfs/desktop-hdd-8tbDS1770-9-1603US-en_US.pdf) / SSD [Datasheet](https://www.micron.com/-/media/client/global/documents/products/data-sheet/ssd/m550_m2_2280_ssd.pdf) | **Homework E**
 | 8 Apr   | Ch. 38-39	| RAID	         | FS Abstraction | **Project 5**
 | 15 Apr  | Ch. 40-42	| FS Impl        | FS Structure | **Homework F**
-| 22 Apr  | Ch. 53-55	| Security       | Security |
-| 29 Apr  | -           | Review<br>**Project 6** | No Class |
+| 22 Apr  | Ch. 53-55	| Security       | Security | **Project 6**
+| 29 Apr  | -           | Review | No Class |
 | 6 May	  |             |                | [Final Exam Thursday 10:30](final) |
 
 ## Project 3 Extra Credit Submissions
