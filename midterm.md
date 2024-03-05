@@ -8,7 +8,7 @@ Midterm Exam
 
 The midterm exam will cover this material:
 
-- Chapters 1-17 - Processes and Scheduling
+- Chapters 1-11 - Processes and Scheduling
 - Chapters 25-34 - Threads and Synchronization
 - Projects 1-3 and Homeworks A-D
 
