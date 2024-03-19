@@ -107,8 +107,7 @@ help
 ```
 
 The `submit` command defines a new text-to-speech job, and names the
-input text file to convert, and assigns an integer priority to the job.
-(Higher priority numbers are better.)
+input text file to convert.
 `submit` should **not** perform the conversion itself!  Instead, `submit` should add the job to the queue,
 and display a unique integer job ID generated internally by your program.
 (Just start at one and count up.)  The job will then run in the background
