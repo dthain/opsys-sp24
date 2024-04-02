@@ -14,7 +14,7 @@ and a max of 32 segments per process.  Sketch the translation of virtual to phys
 - The maximum possible physical memory.
 
 2 - Consider a **paged** memory space with a **single level** table,
-using a 36 bit virtual address, a 24-bit physical address, and a 16KB page size.
+using a 36 bit virtual address, a 24-bit physical address, and a 1KB page size.
 Sketch the translation of virtual to physical addresses as we have done in class.
 Make sure to include:
 - The number of bits in each field.
