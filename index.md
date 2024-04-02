@@ -56,7 +56,7 @@ title: CSE 30341 - Operating Systems Principles
 | 11 Mar  | -           | Spring Break   | Spring Break |
 | 18 Mar  | Ch. 17-19	| Paging Mechanisms | TLBs / Performance	| **[Project 4](project4)**
 | 25 Mar  | Ch. 20-22	| Multi-Level Paging | Swapping	| <br>(Easter Break)
-| 1 Apr	  | Ch. 35-37 + 44 | I/O Devices / ([Mouse](https://github.com/dthain/basekernel/blob/master/kernel/mouse.c) / [Disk](https://github.com/dthain/basekernel/blob/master/kernel/ata.c))  | HDD [Datasheet](https://www.seagate.com/www-content/datasheets/pdfs/desktop-hdd-8tbDS1770-9-1603US-en_US.pdf) / SSD [Datasheet](https://www.micron.com/-/media/client/global/documents/products/data-sheet/ssd/m550_m2_2280_ssd.pdf) | **Homework E**
+| 1 Apr	  | Ch. 35-37 + 44 | I/O Devices / ([Mouse](https://github.com/dthain/basekernel/blob/master/kernel/mouse.c) / [Disk](https://github.com/dthain/basekernel/blob/master/kernel/ata.c))  | HDD [Datasheet](https://www.seagate.com/www-content/datasheets/pdfs/desktop-hdd-8tbDS1770-9-1603US-en_US.pdf) / SSD [Datasheet](https://www.micron.com/-/media/client/global/documents/products/data-sheet/ssd/m550_m2_2280_ssd.pdf) | [Homework E](homework-e)
 | 8 Apr   | Ch. 38-39	| RAID	         | FS Abstraction | **Project 5**
 | 15 Apr  | Ch. 40-42	| FS Impl        | FS Structure | **Homework F**
 | 22 Apr  | Ch. 53-55	| Security       | Security | **Project 6**
