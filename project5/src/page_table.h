@@ -20,9 +20,11 @@ struct page_table;
 
 typedef void (*page_fault_handler_t) ( struct page_table *pt, int page );
 
-/* Create a new page table, along with a corresponding virtual memory
-that is "npages" big and a physical memory that is "nframes" bit
- When a page fault occurs, the routine pointed to by "handler" will be called. */
+/*
+Create a new page table, along with a virtual memory
+that is "npages" big and a physical memory that is "nframes" big.
+When a page fault occurs, the routine pointed to by "handler" will be called.
+*/
 
 struct page_table * page_table_create( int npages, int nframes, page_fault_handler_t handler );
 
@@ -32,7 +34,7 @@ void page_table_delete( struct page_table *pt );
 
 /*
 Set the frame number and access bits associated with a page.
-The bits may be any of PROT_READ, PROT_WRITE, or PROT_EXEC logical-ored together.
+The bits may be any of BIT_PRESENT, BIT_WRITE, BIT_DIRTY, or BITREF. logical-ored together.
 */
 
 void page_table_set_entry( struct page_table *pt, int page, int frame, int bits );
@@ -40,14 +42,10 @@ void page_table_set_entry( struct page_table *pt, int page, int frame, int bits 
 /*
 Get the frame number and access bits associated with a page.
 "frame" and "bits" must be pointers to integers which will be filled with the current values.
-The bits may be any of PROT_READ, PROT_WRITE, PROT_EXEC, or PROT_REFERENCED logical-ored together.
+The bits returned may be any combination of BIT_PRESENT, BIT_WRITE, BIT_DIRTY, and BIT_REF.
 */
 
 void page_table_get_entry( struct page_table *pt, int page, int *frame, int *bits );
-
-/* Clear one or more specific bits from an entry in the page table. */
-
-void page_table_clear_bits( struct page_table *pt, int page, int bits );
 
 /* Return a pointer to the start of the virtual memory associated with a page table. */
 
@@ -78,6 +76,7 @@ Manually set the reference or dirty bits.  This is a hack needed by our
 simulated programs b/c the posix interface doesn't track reference and dirty.
 You do not need to use this function in your assignment.
 */
+
 void __internal_set_bits( struct page_table *pt, void *vaddr, int bits );
 
 #endif

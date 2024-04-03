@@ -137,18 +137,6 @@ void page_table_set_entry( struct page_table *pt, int page, int frame, int bits 
 	mprotect(pt->virtmem+page*PAGE_SIZE,PAGE_SIZE,bits_to_prots(bits));
 }
 
-void page_table_clear_bits( struct page_table *pt, int page, int removebits )
-{
-	if( page<0 || page>=pt->npages ) {
-		fprintf(stderr,"page_table_clear_bits: illegal page %d\n",page);
-		abort();
-	}
-
-	int frame, bits;
-	page_table_get_entry(pt,page,&frame,&bits);
-	page_table_set_entry(pt,page,frame,bits & ~removebits);
-}
-
 void __internal_set_bits( struct page_table *pt, void *vaddr, int bits )
 {
 	int page = ((char*)vaddr-pt->virtmem) >> PAGE_BITS;
