@@ -10,6 +10,8 @@ The goals of this project are:
 - to learn the code mechanics of operating system fault handlers.
 - to develop skills in quantitative system evaluation.
 
+**Note: You may carry out this project individually or in pairs.**
+
 ## Project Overview
 
 In this project, you will build a simple but fully functional demand paged virtual memory.
@@ -172,21 +174,36 @@ You must also turn in a lab report that has the following elements:
 - In your own words, briefly explain the purpose of the experiments and the experimental setup.  Be sure to clearly state on which machine you ran the experiments, and exactly what your command line arguments were, so that we can reproduce your work in case of any confusion.
 - Very carefully describe the custom page replacement algorithm that you have invented.  Make sure to give enough detail that someone else could reproduce your algorithm, even without your code.  Draw a nice diagram that shows what information you store, and how it is accessed.
 - Measure and graph the number of page faults, disk reads, and disk writes for each program and each page replacement algorithm using 100 pages and a varying number of frames between 3 and 100.  Spend some time to make sure that your graphs are nicely laid out, correctly labelled, and easy to read.
-- Explain the nature of the results.  If one algorithm performs better than another under certain conditions, then point that out, explain the conditions, and explain *why* it performs better.
+- Explain the nature of the results at some length.  Are there any unexpected results?  If one algorithm performs better than another under certain conditions, then point that out, explain the conditions, and explain *why* it performs better.  What general observations can you make about page replacement algorithms?
 
 ## Frequently Asked Questions
 
 - **When a page fault occurs, how can I tell if it is a read or a write?**
 
-Unfortunately, there is no good way to tell directly.  What you need to do is look at the existing permissions on the page, and conclude that the fault is due to the missing permission.  If the page has no permissions, you should add the `BIT_PRESENT` permissions and continue.  If the page already has `BIT_PRESENT` then you can conclude
+Unfortunately, there is no way to tell directly.  What you need to do is look at the existing permissions on the page, and conclude that the fault is due to the missing permission.  If the page has no permissions, you should add the `BIT_PRESENT` permissions and continue.  If the page already has `BIT_PRESENT` then you can conclude
 it is attemping to write, and may add `BIT_WRITE` and continue.
 
 - **How can I tell if a given page is written on disk or in memory?**
 
-Call `page_table_get_entry(page,&frame,&bits)`.  If the given page has non-zero
-permission bits, then it resides in the indicated frame number.  If the
+Call `page_table_get_entry(pt,page,&frame,&bits)` to read the page table
+entry for `page` into the variables `frame` and `bits`.  If `bits` contains `BIT_PRESENT`
+then the page resides in the indicated frame number.  If the
 permission bits are zero, then it is not in memory, and the frame number
 is irrelevant.
+
+- **How do I go about manipulating the bits in a variable?**
+
+Here are some examples to refresh your memory on bitwise operations:
+```
+/* Test whether a particular bit is set: */
+if( bits & BIT_PRESENT ) { ... }
+
+/* Add a particular bit to the variable: */
+bits |= BIT_WRITE;
+
+/* Remove a particular bit from the variable: */
+bits &= ~BIT_REF;
+```
 
 - **Am I responsible for keeping track of which frames are free?**
 
@@ -225,7 +242,13 @@ delta | 10 | 5201920
 
 ## Turning In
 
-This assignment is due at <strike>5PM on Friday, April 8th</strike> **9AM on Monday, April 11th**.  Turn in all of your source code and a Makefile that builds `virtmem` when the user types `make`.  Turn in a lab report named `report.pdf` with the results indicated above.  Please do not turn in executables or other large files.  As a reminder, your dropbox is this directory:
+This assignment is due at **11:59PM on Monday, April 15th**.
+Turn in all of the following to **one** student's dropbox directory:
+- All of your source code and a Makefile that builds `virtmem` when the user types `make`.
+- A lab report named `report.pdf` with the results indicated above.
+- A text file named `PARTNERS` that gives the name of both project partners.
+
+Please do not turn in executables or other large files.  As a reminder, your dropbox is this directory:
 
 ```
 /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNAME/project5
@@ -238,5 +261,4 @@ Your grade on this assignment will be based on the following:
 - Correct implementation of demand paging with any arbitrary access pattern and amount of virtual and physical memory.  (50%)
 - A lab report which is clearly written using correct English, contains an appropriate description of your experiments, contains correct results that are clearly presented, and draws appropriate conclusions. (30%) 
 - Thorough attention to and handling of all possible error conditions, including user error. (10%) 
-- Good coding style, including clear formatting, sensible variable names, and useful comments. (10%) 
-
+- Good coding style, including clear formatting, sensible variable names, and useful comments. (10%)
