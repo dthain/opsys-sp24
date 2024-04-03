@@ -1,6 +1,7 @@
 /*
-Do not modify this file.
-Make all of your changes to main.c instead.
+This is the implementation of the virtual dis.
+Don't modify this file.
+Make all of your changes in main.c instead.
 */
 
 #define _XOPEN_SOURCE 500L

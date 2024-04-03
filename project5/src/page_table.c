@@ -1,5 +1,5 @@
-
 /*
+This is the implementation of the page table module.
 Do not modify this file.
 Make all of your changes to main.c instead.
 */
@@ -14,8 +14,11 @@ Make all of your changes to main.c instead.
 #include <fcntl.h>
 #include <stdlib.h>
 #include <ucontext.h>
+#include <signal.h>
 
 #include "page_table.h"
+
+#define PAGE_BITS 12
 
 struct page_table {
 	int fd;
@@ -29,6 +32,14 @@ struct page_table {
 };
 
 struct page_table *the_page_table = 0;
+
+static int bits_to_prots( int bits )
+{
+	int prots = 0;
+	if(bits&BIT_PRESENT) prots |= PROT_READ|PROT_EXEC;
+	if(bits&BIT_WRITE) prots |= PROT_WRITE;
+	return prots;
+}
 
 static void internal_fault_handler( int signum, siginfo_t *info, void *context )
 {
@@ -123,7 +134,31 @@ void page_table_set_entry( struct page_table *pt, int page, int frame, int bits 
 	pt->page_bits[page] = bits;
 
 	remap_file_pages(pt->virtmem+page*PAGE_SIZE,PAGE_SIZE,0,frame,0);
-	mprotect(pt->virtmem+page*PAGE_SIZE,PAGE_SIZE,bits);
+	mprotect(pt->virtmem+page*PAGE_SIZE,PAGE_SIZE,bits_to_prots(bits));
+}
+
+void page_table_clear_bits( struct page_table *pt, int page, int removebits )
+{
+	if( page<0 || page>=pt->npages ) {
+		fprintf(stderr,"page_table_clear_bits: illegal page %d\n",page);
+		abort();
+	}
+
+	int frame, bits;
+	page_table_get_entry(pt,page,&frame,&bits);
+	page_table_set_entry(pt,page,frame,bits & ~removebits);
+}
+
+void __internal_set_bits( struct page_table *pt, void *vaddr, int bits )
+{
+	int page = ((char*)vaddr-pt->virtmem) >> PAGE_BITS;
+	
+	if( page<0 || page>=pt->npages ) {
+		fprintf(stderr,"page_table_set_bits: illegal address 0x%p\n",vaddr);
+		abort();
+	}
+
+	pt->page_bits[page] |= bits;
 }
 
 void page_table_get_entry( struct page_table *pt, int page, int *frame, int *bits )
@@ -146,12 +181,13 @@ void page_table_print_entry( struct page_table *pt, int page )
 
 	int b = pt->page_bits[page];
 
-	printf("page %06d: frame %06d bits %c%c%c\n",
+	printf("page %06d: frame %06d bits %c%c%c%c\n",
 		page,
 		pt->page_mapping[page],
-		b&PROT_READ  ? 'r' : '-',
-		b&PROT_WRITE ? 'w' : '-',
-		b&PROT_EXEC  ? 'x' : '-'
+		b&BIT_PRESENT ? 'P' : '-',
+		b&BIT_WRITE   ? 'W' : '-',
+	        b&BIT_DIRTY   ? 'D' : '-',
+	        b&BIT_REF     ? 'R' : '-'
 	);
 
 }

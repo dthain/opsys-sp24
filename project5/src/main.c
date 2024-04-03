@@ -15,6 +15,16 @@ how to use the page table and disk interfaces.
 #include <string.h>
 #include <errno.h>
 
+/* Global pointer to the disk object */
+struct disk *disk = 0;
+
+/* Global pointer to the physical memory spacet */
+unsigned char *physmem = 0;
+
+/* Global pointer to the virtual memory spacet */
+unsigned char *virtmem = 0;
+
+/* A dummy page fault handler to start.  This is where most of your work goes. */
 void page_fault_handler( struct page_table *pt, int page )
 {
 	printf("page fault on page #%d\n",page);
@@ -24,20 +34,20 @@ void page_fault_handler( struct page_table *pt, int page )
 int main( int argc, char *argv[] )
 {
 	if(argc!=5) {
-		printf("use: virtmem <npages> <nframes> <rand|fifo|custom> <alpha|beta|gamma|delta>\n");
+		printf("use: virtmem <npages> <nframes> <rand|clock|custom> <alpha|beta|gamma|delta>\n");
 		return 1;
 	}
 
 	int npages = atoi(argv[1]);
 	int nframes = atoi(argv[2]);
+	const char *algoname = argv[3];
 	const char *program = argv[4];
 
-	struct disk *disk = disk_open("myvirtualdisk",npages);
+	disk = disk_open("myvirtualdisk",npages);
 	if(!disk) {
 		fprintf(stderr,"couldn't create virtual disk: %s\n",strerror(errno));
 		return 1;
 	}
-
 
 	struct page_table *pt = page_table_create( npages, nframes, page_fault_handler );
 	if(!pt) {
@@ -45,21 +55,20 @@ int main( int argc, char *argv[] )
 		return 1;
 	}
 
-	unsigned char *virtmem = page_table_get_virtmem(pt);
-
-	unsigned char *physmem = page_table_get_physmem(pt);
-
+	physmem = page_table_get_physmem(pt);
+	virtmem = page_table_get_virtmem(pt);
+	
 	if(!strcmp(program,"alpha")) {
-		alpha_program(virtmem,npages*PAGE_SIZE);
+		alpha_program(pt,virtmem,npages*PAGE_SIZE);
 
 	} else if(!strcmp(program,"beta")) {
-		beta_program(virtmem,npages*PAGE_SIZE);
+		beta_program(pt,virtmem,npages*PAGE_SIZE);
 
 	} else if(!strcmp(program,"gamma")) {
-		gamma_program(virtmem,npages*PAGE_SIZE);
+		gamma_program(pt,virtmem,npages*PAGE_SIZE);
 
 	} else if(!strcmp(program,"delta")) {
-		delta_program(virtmem,npages*PAGE_SIZE);
+		delta_program(pt,virtmem,npages*PAGE_SIZE);
 
 	} else {
 		fprintf(stderr,"unknown program: %s\n",argv[4]);
