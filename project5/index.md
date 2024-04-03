@@ -43,7 +43,7 @@ and draws conclusions about the behavior of each algorithm.
 
 ## Getting Started 
 
-Begin by downloading the [source code](http://github.com/dthain/opsys-sp22/tree/main/project5/src) and building it.
+Begin by downloading the [source code](http://github.com/dthain/opsys-sp24/tree/main/project5/src) and building it.
 Look through [main.c](src/main.c) and notice that the program simply creates
 a virtual disk and page table, and then attempts to run one of our four "programs"
 using the virtual memory.  Because no mapping has been made between virtual and
