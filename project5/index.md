@@ -242,7 +242,10 @@ delta | 10 | 5201920
 
 ## Turning In
 
+Please review the [General Instructions For Assignments](../general).
+
 This assignment is due at **11:59PM on Monday, April 15th**.
+
 Turn in all of the following to **one** student's dropbox directory:
 - All of your source code and a Makefile that builds `virtmem` when the user types `make`.
 - A lab report named `report.pdf` with the results indicated above.
