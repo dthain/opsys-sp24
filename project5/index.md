@@ -88,21 +88,19 @@ Let's work through an example, starting with the figure below.
 Suppose that we begin with nothing in physical memory.  If the application
 begins by trying to read page 2, this will result in a page fault.
 The page fault handler chooses a free frame by some method, say frame 3.  It then
-adjusts the page table to map page 2 to frame 3, and sets the `P` bit like this:
-```
-page_table_set_entry( pt, 2, 3, BIT_PRESENT );
-```
-
-Then, it loads page 2 from disk into page 3 like this:
-```
-disk_read( disk, 2, &physmem[3*frame_size] );
-```
-
+adjusts the page table to map page 2 to frame 3, and sets the `P` bit.
+Then, it loads page 2 from disk into page 3 like this.
 When the page fault handler
 completes, the read operation is re-attempted, and succeeds, setting the
 `R` bit afterward.
 
 ![](vm2.png)
+
+In short, the page fault handler did this:
+```
+page_table_set_entry( pt, 2, 3, BIT_PRESENT );
+disk_read( disk, 2, &physmem[3*frame_size] );
+```
 
 The application continues to run, reading various pages.  Suppose that
 it reads pages 3, 5, 6, and 7, each of which result in a page fault,
@@ -116,32 +114,34 @@ Ssuppose that the application attempts to **write** to page 5.
 Because this page only has the P bit set, a page fault will result.
 (We didn't give it permission to write yet.)
 The page fault handler looks at the current page bits, and upon
-seeing that it already has the `P` bit set, adds the `W` bit like this:
-```
-page_table_set_entry( pt, 5, 0, BIT_PRESENT|BIT_WRITE );
-```
+seeing that it already has the `P` bit set, adds the `W` bit.
 The page fault handler returns, and the application can continue.
 The `D` bit will be automatically set by the hardware.
 Page 5, frame 1 is now modified.
 
 ![](vm4.png)
 
+The page fault handler did this:
+```
+page_table_set_entry( pt, 5, 0, BIT_PRESENT|BIT_WRITE );
+```
+
 Now suppose that the application reads page 1.  Page 1 is not currently
 paged into physical memory.  The page fault handler must decide which frame
 to remove.  By some method it picks page 5, frame 0 at random.  Because page
 5 has the `D` bit set, we know that it is dirty.  The page fault
-handler writes page 5 back to the disk, and reads page 1 in its place like this:
+handler writes page 5 back to the disk, and reads page 1 in its place.
+And two entries in the page table are updated to reflect the new situation.
+
+![](vm5.png)
+
+The page fault handler did this:
 ```
 disk_write( disk, 5, &physmem[0*page_size] );
 disk_read(  disk, 1, &physmem[0*page_size] );
-```
-And two entries in the page table are updated to reflect the new situation like this:
-```
 page_table_set_entry( pt, 1, 0, BIT_PRESENT );
 page_table_set_entry( pt, 5, 0, 0 );
 ```
-
-![](vm5.png)
 
 That's the basic idea of virtual memory.  Your job is to write the page
 fault handler and implement several methods for selecting pages to replace.
