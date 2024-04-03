@@ -22,7 +22,7 @@ The following figure gives an overview of the components:
 
 ![](vm1.png)
 
-We will provide you with code that implements a ["virtual" page table](src/page_table.h) and a ["virtual" disk](src/disk.h).
+We will provide you with code that implements a simulated page table and disk.
 The virtual page table will create a small virtual and physical memory, along with
 methods for updating the page table entries and protection bits.  When an application uses
 the virtual memory, it will result in page faults that call a custom handler.
@@ -54,7 +54,10 @@ page fault on page #0
 
 The program exits because the page fault handler isn't written yet.  That is your job!
 
-Try this as a getting started exercise.  If you run the program with an equal number of
+Now, read the header files [disk.h](src/disk.h) and [page_table.h](src/page_table.h)
+to understand what operations you can perform on the disk and page table.
+
+Then try this as a getting started exercise.  If you run the program with an equal number of
 pages and frames, then you don't actually need a disk.  Instead, you can simply make
 page N map directly to frame N, and do nothing else.  So, modify the page fault handler
 to provide a present and writable page, like this:
@@ -83,8 +86,17 @@ Let's work through an example, starting with the figure below.
 Suppose that we begin with nothing in physical memory.  If the application
 begins by trying to read page 2, this will result in a page fault.
 The page fault handler chooses a free frame by some method, say frame 3.  It then
-adjusts the page table to map page 2 to frame 3, and sets the `P` bit.
-Then, it loads page 2 from disk into page 3.  When the page fault handler
+adjusts the page table to map page 2 to frame 3, and sets the `P` bit like this:
+```
+page_table_set_entry( pt, 2, 3, BIT_PRESENT );
+```
+
+Then, it loads page 2 from disk into page 3 like this:
+```
+disk_read( disk, 2, &physmem[3*frame_size] );
+```
+
+When the page fault handler
 completes, the read operation is re-attempted, and succeeds, setting the
 `R` bit afterward.
 
@@ -102,7 +114,10 @@ Ssuppose that the application attempts to **write** to page 5.
 Because this page only has the P bit set, a page fault will result.
 (We didn't give it permission to write yet.)
 The page fault handler looks at the current page bits, and upon
-seeing that it already has the `P` bit set, adds the `W` bit.
+seeing that it already has the `P` bit set, adds the `W` bit like this:
+```
+page_table_set_entry( pt, 5, 0, BIT_PRESENT|BIT_WRITE );
+```
 The page fault handler returns, and the application can continue.
 The `D` bit will be automatically set by the hardware.
 Page 5, frame 1 is now modified.
@@ -113,8 +128,16 @@ Now suppose that the application reads page 1.  Page 1 is not currently
 paged into physical memory.  The page fault handler must decide which frame
 to remove.  By some method it picks page 5, frame 0 at random.  Because page
 5 has the `D` bit set, we know that it is dirty.  The page fault
-handler writes page 5 back to the disk, and reads page 1 in its place.
-Two entries in the page table are updated to reflect the new situation.
+handler writes page 5 back to the disk, and reads page 1 in its place like this:
+```
+disk_write( disk, 5, &physmem[0*page_size] );
+disk_read(  disk, 1, &physmem[0*page_size] );
+```
+And two entries in the page table are updated to reflect the new situation like this:
+```
+page_table_set_entry( pt, 1, 0, BIT_PRESENT );
+page_table_set_entry( pt, 5, 0, 0 );
+```
 
 ![](vm5.png)
 
@@ -147,11 +170,8 @@ but the final version should not have any extraneous output.
 You must also turn in a lab report that has the following elements:
 
 - In your own words, briefly explain the purpose of the experiments and the experimental setup.  Be sure to clearly state on which machine you ran the experiments, and exactly what your command line arguments were, so that we can reproduce your work in case of any confusion.
-
 - Very carefully describe the custom page replacement algorithm that you have invented.  Make sure to give enough detail that someone else could reproduce your algorithm, even without your code.  Draw a nice diagram that shows what information you store, and how it is accessed.
-
 - Measure and graph the number of page faults, disk reads, and disk writes for each program and each page replacement algorithm using 100 pages and a varying number of frames between 3 and 100.  Spend some time to make sure that your graphs are nicely laid out, correctly labelled, and easy to read.
-
 - Explain the nature of the results.  If one algorithm performs better than another under certain conditions, then point that out, explain the conditions, and explain *why* it performs better.
 
 ## Frequently Asked Questions
