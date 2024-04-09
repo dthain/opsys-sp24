@@ -42,11 +42,12 @@ At the top are a large number of programs running concurrently
 and accessing the disk in different patterns:some sequentially,
 some random, and some in concentrated areas.  These programs
 will make their requests known by calling the functions
-`bcache_read()` and `bcache_write()`.
+`bcache_read()` and `bcache_write()`.  When all the programs are
+done, the main program will call `bcache_sync()` to finish up.
 
 In the middle is the buffer/cache, the part that you will create.
-This module implements the functions `bcache_read` and `bcache_write`,
-which both operate by manipulating the actual buffer data structure.
+This module implements the functions `bcache_read`, `bcache_write`,
+and `bcache_sync` which both operate by manipulating the actual buffer data structure.
 It consists of a number of 4KB blocks of memory, each representing
 one block of data, in one of several states.  The buffer/cache has
 two combined jobs:
@@ -84,17 +85,17 @@ Programs will access the buffer/cache using the following three operations:
 ```
 int bcache_read( struct bcache *bc, int blocknum, char *data );
 int bcache_write( struct bcache *bc, int blocknum, const char *data );
-int bcache_drop( struct bcache *bc, int blocknum );
+int bcache_sync struct bcache *bc );
 ```
 
 As the name suggests, `bcache_read` should read a 4KB block from disk
 into the buffer/cache, then copy the 4KB cached data into the `data` pointer
 provided by the caller.  `bcache_write` should copy 4KB from the `data` pointer
 into the buffer/cache, and arrange for it to be written back to disk as time
-permits.  `bcache_drop` indicates that the given block number is no longer
-needed, and the cache may drop it.
-These three functions do not access the disk directly, but should modify
-the state of the buffer cache, and (possibly) wait for the I/O scheduler
+permits.  `bcache_sync` should pause until all pending writes in the buffer
+have completed.
+These three functions do not access the disk directly, but may modify
+the state of the buffer cache, and may wait for the I/O scheduler
 thread to take some action before returning.
 
 The I/O scheduler thread running in the background does not interact
@@ -172,6 +173,18 @@ in order to get a correct result.  We won't tell you exactly how to go
 about it (since there are multiple good solutions) but these are some
 areas that you will need to ponder.
 
+**Data Structures** - You can organize the data structure of the buffer
+cache however you like, as long as it stores the necessary data efficiently.
+You will probably have a structure representing a single block that looks
+like this, but you are welcome to add or modify fields as required:
+```
+struct block {
+    int blocknum;
+    int state;
+    char data[4096];
+};
+```
+
 **Thread Synchronization** - The programs and the I/O scheduler will
 run as concurrent threads, all attempting to modify the buffer/cache
 data structure simultaneously.  Use what you have learned about threads
@@ -195,7 +208,7 @@ or `bcache_write` encounters a block in that state.
 
 ## Getting Started
 
-Download the [source code](http://github.com/dthain/opsys-sp22/tree/main/project6/src) and build it with `make`.
+Download the [source code](http://github.com/dthain/opsys-sp24/tree/main/project6/src) and build it with `make`.
 
 The system is invoked as follows:
 
@@ -224,7 +237,6 @@ disk operations over the elapsed time, like this:
 ```
  buffer  reads:
  buffer writes:
- buffer  drops:
    disk  reads:
    disk writes:
   elapsed time:
