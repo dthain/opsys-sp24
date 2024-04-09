@@ -36,7 +36,7 @@ that make disk requests, a simulated disk that satisfies those
 requests, and your job is to build the buffer/cache module that
 sits in the middle.    This figure gives the overall idea:
 
-![](buffer1.png)
+![](overview.png)
 
 At the top are a large number of programs running concurrently
 and accessing the disk in different patterns:some sequentially,
@@ -129,7 +129,7 @@ waits for the I/O scheduler thread to take action.  The scheduler thread
 notices the waiting block, and takes action by changing it to the `READING`
 state, and issues the `disk_read` operation, which may take some time.
 
-![](buffer1.png)
+![](example1.png)
 
 While the I/O scheduler thread is busy reading (and P1 is waiting),
 P2 goes about its business and issues a `bcache_write` operation on block 25.
@@ -139,14 +139,14 @@ been written to disk.  `bcache_write` can return immediately, trusting that
 the I/O scheduler thread will (eventually) write the block to disk.
 P2 then repeats this action on blocks 26 and 27.
 
-![](buffer2.png)
+![](example2.png)
 
 Finally, the I/O scheduler completes the `disk_write` operation, and marks
 block 10 as `READY`.  It notifies the waiting thread that the block is now
 ready, and the corresponding `bcache_read` operation completes, so that P1
 can go about its further business.
 
-![](buffer3.png)
+![](example3.png)
 
 Next, the I/O scheduler looks for more work to do.  It notices that Block 25
 is dirty, so it changes its state to `WRITING` and calls `disk_write` to copy
@@ -155,13 +155,15 @@ Block 10 is already in the buffer/cache, and so it can be provided to P2 immedia
 without waiting for the I/O scheduler thread.  In a similar way, P3 calls `bcache_read`
 to read block 27, which is also present and can be provided immediately.
 
-![](buffer3.png)
+![](example4.png)
 
 Eventually, the I/O scheduler thread completes working on Block 25,
 and marks it as `READY`, because it is no longer dirty.  The scheduler thread
 looks for more work to do, and selects block 26.  It changes the state to
 `WRITING` and calls `disk_write` as appropriate.  Meanwhile, P3 calls `bcache_read`
 to read block 17, which is not in the cache, and so it blocks in the `WANTREAD` state.
+
+![](example5.png)
 
 ## Things to Figure Out
 
