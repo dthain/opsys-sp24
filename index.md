@@ -57,7 +57,6 @@ title: CSE 30341 - Operating Systems Principles
 | 18 Mar  | Ch. 17-19	| Paging Mechanisms | TLBs / Performance	| **[Project 4](project4)**
 | 25 Mar  | Ch. 20-22	| Multi-Level Paging | Swapping	| <br>(Easter Break)
 | 1 Apr	  | Ch. 35-37 + 44 | Swapping Cont. | | I/O Devices / ([Mouse](https://github.com/dthain/basekernel/blob/master/kernel/mouse.c) / [Disk](https://github.com/dthain/basekernel/blob/master/kernel/ata.c))  | [Homework E](homework-e)
-
 | 8 Apr   | Ch. 38-39	| HDD [Datasheet](datasheets/seagate-st8000-hdd.pdf) / SSD [Datasheet](micron-2280-ssd.pdf) | Buffer Cache / Files-Dirs | [Project 5](project5)
 | 15 Apr  | Ch. 40-42	| FS Impl        | FS Impl | **Homework F**
 | 22 Apr  | Ch. 53-55	| Security       | Security | **Project 6**
