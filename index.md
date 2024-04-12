@@ -60,7 +60,7 @@ title: CSE 30341 - Operating Systems Principles
 | 8 Apr   | Ch. 38-39	| HDD [Datasheet](datasheets/seagate-st8000-hdd.pdf) / SSD [Datasheet](micron-2280-ssd.pdf) | Buffer Cache / Files-Dirs | [Project 5](project5)
 | 15 Apr  | Ch. 40-42	| FS Impl        | FS Impl |
 | 22 Apr  | Ch. 53-55	| Security       | Security | 
-| 29 Apr  | -           | Review | No Class | [**Project 6 Due Wed**](project6)
+| 29 Apr  | -           | Review | No Class | [Project 6 Due Wed](project6)
 | 6 May	  |             |                | [Final Exam Thursday 10:30](final) |
 
 ## Project 3 Extra Credit Submissions
