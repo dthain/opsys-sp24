@@ -276,9 +276,10 @@ Don't be surprised if some of these don't work the first time.
 If your buffer cache returns an incorrect block back to a program,
 then you will get a message like this:
 ```
+CRASH: bcache_read of block %d returned incorrect data from block %d instead!
 ```
 
-We recommend that you troubleshoot by adding `printfs` indicate
+We recommend that you troubleshoot by adding `printfs` to indicate
 what each thread is doing within `bcache_read` and `bcache_write`,
 and what the I/O scheduler thread is doing.  By tracing through
 the set of steps that lead to a crash, you should gain insight
