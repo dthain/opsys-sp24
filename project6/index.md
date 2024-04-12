@@ -3,28 +3,31 @@ layout: default
 title: Project 6: Buffer / Cache
 ---
 
-# WARNING: Under Construction
-
-**This is an old version of an assignment, and currently being revised.  If you got here by accident, don't use this document yet!**
-
 # Project 6: Buffer / Cache
 
 ## Objectives
 
-By undertaking this project, you will:
-- learn how to implement a core operating system capability.
-- learn about the scheduling and performance aspects of disk I/O.
-- gain more experience in writing synchonized multi-threaded code.
-- develop your expertise in C programming by using structures and pointers extensively.
+In this project, you will build a buffer/cache, which is the central
+data structure used to manage I/O performance in an operating system.
+In this project you will apply many of the techniques and skills
+that you have learned over the course of the semester.
+You will:
+
+- implement synchronized access to data structures from multiple threads.
+- avoid deadlock between competing threads.
+- improve the performance of the I/O system by managing memory effectively.
+- schedule multiple pending operations in an efficient manner.
+- develop even more expertise in C programming by using structures and pointers extensively.
 
 **This project may be done in pairs or singletons.**
 Please submit your work to a single dropbox with a PARTNERS file
 that indicates the project members.  Both partners will receive the same grade.
 
-Over the course of the semester, the projects
-have grown in both size and difficulty.  This project is the
-largest of all, so don't leave it to the last minute.
-**Get started right away!**
+**This is a challenging project that will take time to get right.**
+Although the total quantity of code is not large (perhaps a few hundred lines)
+you will need to think carefully about data structures, thread synchronization,
+scheduling, and other issues.  This will require extended time to think, troubleshoot,
+and think some more over the next few weeks. **Get started right away!**
 
 ## Overview
 
@@ -42,7 +45,9 @@ At the top are a large number of programs running concurrently
 and accessing the disk in different patterns:some sequentially,
 some random, and some in concentrated areas.  These programs
 will make their requests known by calling the functions
-`bcache_read()` and `bcache_write()`.  When all the programs are
+`bcache_read()` and `bcache_write()`.  (They also check what
+they are reading to make sure it is correctly read back.)
+When all the programs are
 done, the main program will call `bcache_sync()` to finish up.
 
 In the middle is the buffer/cache, the part that you will create.
@@ -58,7 +63,7 @@ process may return quickly, and the data may be written to disk as time permits.
 2 - It **caches** recently accessed data in memory, so that processes
 that return to the same data may access it at memory speed, instead of waiting for the dis.
 
-Note that `bcache_read` and `bcache_write` operate only on the
+Note that `bcache_read` and `bcache_write` should operate only on the
 buffer data structure, they do not access the actual underlying disk.
 That is the job of the **I/O scheduler thread** which runs in the background.
 It considers the current state of the data structure, and performs
@@ -70,7 +75,7 @@ to the one you used in the virtual memory project.  It has the (simple)
 capabilities of a real disk, allowing you only to read and write one
 whole block at a time.  Only one thread (the I/O scheduler) can access
 the disk at a time, and this is the performance bottleneck of the system.
-Each request to the disk will take at least 10ms, plus a little more
+Each request to the disk will take at least 10ms, plus some extra time
 for the distance that the disk must travel since the last request.
 
 ## Buffer / Cache Implementation
@@ -222,26 +227,26 @@ For example, to run with 5 threads, 10 buffer blocks in memory, and 100 disk blo
 ./bcache 5 10 100
 ```
 
-As provided, the system will actually run correctly, although very slowly.
+As provided, the system will actually run correctly, although slowly.
 We have provided you with a "dummy" implementation of the buffer cache,
 in which `bcache_read` and `bcache_write` are implemented by calling
 `disk_read` and `disk_write` directly.  The result is that each program
 will perform I/O in a blocking manner and run **very** slowly.
 By implementing the buffer cache correctly, you will get this system
-to run **much**faster.
+to run **much** faster.
 
 At the end of the run, the main program will print out some key
 performance metrics, simply counting the number of buffer and
 disk operations over the elapsed time, like this:
 
 ```
- buffer  reads:
- buffer writes:
-   disk  reads:
-   disk writes:
-  elapsed time:
-   buffer perf: 3.4 buffer ops/s
-     disk perf: 3.4 buffer ops/s
+ elapsed time: 9.93s
+bcache  reads: 700
+bcache writes: 300
+bcache   perf: 100.75 ops/s
+  disk  reads: 501
+  disk writes: 252
+  disk   perf: 75.86 ops/s
 ```
 
 Note that the disk will always be less than 100 ops/s,
@@ -254,6 +259,31 @@ be able to get the disk performance very close to 100 ops/s.
 
 How fast can you make it go?
 
+## Troubleshooting Tips
+
+We suggest that you test your implementation in a variety of
+configurations of increasing complexity and difficulty, such as:
+
+```
+./bcache 1 100 100   # single thread, memory = disk
+./bcache 1 20 100    # single thread, memory < disk
+./bcache 10 100 100  # many threads, memory = disk
+./bcache 10 20 100   # many threads, memory < disk
+./bcache 20 5 100    # many threads, memory < threads
+```
+
+Don't be surprised if some of these don't work the first time.
+If your buffer cache returns an incorrect block back to a program,
+then you will get a message like this:
+```
+```
+
+We recommend that you troubleshoot by adding `printfs` indicate
+what each thread is doing within `bcache_read` and `bcache_write`,
+and what the I/O scheduler thread is doing.  By tracing through
+the set of steps that lead to a crash, you should gain insight
+into the nature of the problem.
+
 ## Turning In
 
 Please review the [general instructions](general.md) for assignments.
@@ -264,18 +294,26 @@ You should turn the following to **one** of the partner's dropboxes:
 - All of your source code.
 - A `Makefile` that builds the code.
 - A `PARTNERS` file indicating the names of both partners.
-- A `RESULTS` file containing the plain text results of the following commands:
+- A `RESULTS` file containing the plain text output of the following commands:
 ```
-./bcache 5 10 100
-./bcache 50 10 100
-./bcache 5 20 100
-./bcache 50 20 100
+./bcache 1 100 100   # single thread, memory = disk
+./bcache 1 20 100    # single thread, memory < disk
+./bcache 10 100 100  # many threads, memory = disk
+./bcache 10 20 100   # many threads, memory < disk
+./bcache 20 5 100    # many threads, very limited memory
 ```
-
-Please do not turn in executables, disk images, or other files.
 As a reminder, your dropbox directory is:
 
 ```
 /escnfs/courses/sp24-cse-30341.01/dropbox/YOURNAME/project6
 ```
+
+## Grading
+
+Your grade on this assignment will be based on the following:
+
+- Correct execution with a single program (and one background thread). (50%)
+- Correct execution with many programs. (30%)
+- Correct execution with many programs and limited memory. (10%)
+- Good coding style, including clear formatting, sensible variable names, and useful comments. (10%)
 
