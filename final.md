@@ -11,6 +11,7 @@ The final exam will be **10:30-12:30 on Thursday, May 9th** in 155 Debartolo.
 The format will be similar to that of the midterm -- expect about 5 to 6 pages.
 All of the material covered in the course is relevant:
 
+- Chapter 1-2: Operating Systems Overview
 - Chapter 3-11: Processes and Threads  (Project 1/2, HW A/B)
 - Chapter 12-24: Memory Management (Project 5, HW E)
 - Chapter 25-34: Concurrency and Synchronization (Project 3/4, HW C/D)
